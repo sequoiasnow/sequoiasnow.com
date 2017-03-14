@@ -1,0 +1,4 @@
+node_modules
+.stack*
+.stack-work
+api/.stack-work

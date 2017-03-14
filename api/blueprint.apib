@@ -1,0 +1,132 @@
+FORMAT: 1A
+# SequoiaSnow
+SequoiaSnow is a small personal site allowing people to read about the author.
+
+
+## Group Posts
+Resources related to the blog part of the site.
+
+## All Blog Posts [/posts]
+
+### Get all Posts [GET]
+Returns all posts currently visible, or an empty array if none are found.
+
++ Response 200 (application/json)
+
+        [
+            {
+            "title": "Javascript vs Clojurescript",
+            "body": "Some might argue that javascript is not an elegant language. That it lacks grace or purpose. Some might say that is a dead language, a remnant of the past that bears little relevance to the modern world, but I disagree. Today javascript is much as assembly was of old and while it may have lost some of its grace, it has lost none of its relevance",
+            "tags": ["Javascript", "Clojurescript", "Web", "Web Trends"]
+            }
+        ]
+            
+
+### Create a New Blog Post [POST]
+You may create a new blog post using this method. It takes an array of initial
+information for the post, such as a title, content and tags.
+
++ title (string) - The title
++ body (string) - The main body of the post.
++ tags (array[string]) - An array of tags associated with the post.
+
++ Request (application/json)
+
+        {
+            "title": "Javascript vs Clojurescript",
+            "body": "Some might argue that javascript is not an elegant language. That it lacks grace or purpose. Some might say that is a dead language, a remnant of the past that bears little relevance to the modern world, but I disagree. Today javascript is much as assembly was of old and while it may have lost some of its grace, it has lost none of its relevance",
+            "tags": ["Javascript", "Clojurescript", "Web", "Web Trends"]
+        }
+
++ Response 201 (applications/json)
+  + Body 
+  
+            {
+                "id": 1,
+                "url": "javascript-vs-clojurescript"
+            }
+
+## Specific Post [/posts/{post_id}]
+
+A post object can contain the following attributes
+
++ title
++ body
++ url
++ tags - An array of relevant tags.
++ published_at - An IS0 date when the post was published.
+
++ Parameters
+  + post_id: 1 (required, number) - ID of the Question as an integer
+  
+
+### Update an Existing Blog Post [PUT]
+Use this method to update one or many fields of an existing blog post. Any field
+not part of the specified blog post format will be ignored. If any tags are sent
+they will override all existing tags.
+
++ Request (application/json)
+
+        {
+            "title": "That's No Moon",
+            "tags": ["Han Solo", "Deathstar", "Obi-Wan"]
+        }
+
++ Response 202 (application/json)
+  + Body
+  
+            {
+                "id": 2,
+                "url": "thats-no-moon"
+            }
+
+### Delete an Existing Blog Post [DELETE]
+Use this method to delete a post. This method is final and should be used only
+as a last resort.
+
++ Response 200 (application/json)
+  + Body
+             
+             {
+                 "id": 2,
+                 "url": "thats-no-moon"
+             }
+             
+## Post Tags [/posts/tags]
+Tags are created when posts are published or updated. They are found collectivly
+here.
+
+### All Tags [GET]
+Return all tags currently active in any post.
+
++ Response 200 (application/json)
+  + Body
+            
+            [
+                "Han Solo",
+                "Star Wars",
+                "Deathstar",
+                "Web",
+                "Web Trends",
+                "Javascript",
+                "Clojurescript"
+            ]
+            
+## Specific Tag [/posts/tags/{tag_name}]
+All posts found that are realted to a certain tag.
+
++ Parameters 
+  + tag_name: "Javascript" (required, string) - The name of the tag to be found.
+  
+### Posts For Tag [GET]
+
++ Response 200 (application/json)
+  + Body
+      
+             [
+             {
+                 "title": "Javascript vs Clojurescript",
+                 "body": "Some might argue that javascript is not an elegant language. That it lacks grace or purpose. Some might say that is a dead language, a remnant of the past that bears little relevance to the modern world, but I disagree. Today javascript is much as assembly was of old and while it may have lost some of its grace, it has lost none of its relevance",
+                 "tags": ["Javascript", "Clojurescript", "Web", "Web Trends"]
+             }
+             ]
