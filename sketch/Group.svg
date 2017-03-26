@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1900px" height="1480px" viewBox="0 0 1900 1480" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M895.201648,1480 C1084.00009,1480 1009.70069,1247.49194 1150.97355,1156.28415 C1362.03499,1020.01985 1378.1059,664.471111 1662.51735,731.407104 C2224.07937,863.570248 1641.79974,-37.2135198 1406.74545,84.5058613 C1171.69115,206.225242 945.778949,145.088876 767.315698,23.2786885 C609.591943,-84.3757451 585.589126,213.414083 468.915149,266.065574 C248.154318,365.688361 56.5337136,331.417024 0,549.31694 C149.412769,605.390496 42.6286499,731.407104 42.6286499,731.407104 C42.6286499,842.460759 -64.9241476,1030.19233 119.582031,1042.64542 C475.741108,1066.68409 550.817672,1480 895.201648,1480 Z" id="path-1"></path>
+    </defs>
+    <g id="Planets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(0.000000, -1.000000)">
+            <g id="Group" transform="translate(0.000000, 1.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Asteroid-Mask" fill="#D49F6D" xlink:href="#path-1"></use>
+                <path d="M1364.1168,1844.18033 C1870.29459,1844.18033 468.915149,1159.65327 468.915149,589.781421 C468.915149,19.9095705 1827.66594,-179.043716 1321.48815,-179.043716 C815.310352,-179.043716 -596.801098,242.464215 -596.801098,812.336066 C-596.801098,1382.20792 857.939002,1844.18033 1364.1168,1844.18033 Z" id="Asteroid-Shape" fill-opacity="0.15" fill="#161616" style="mix-blend-mode: darken;" mask="url(#mask-2)"></path>
+                <ellipse id="Crater-7" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" mask="url(#mask-2)" cx="424.346706" cy="953.515713" rx="57.7403171" ry="58.2274614"></ellipse>
+                <ellipse id="Crater-6" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" mask="url(#mask-2)" transform="translate(1026.980734, 795.821986) rotate(30.000000) translate(-1026.980734, -795.821986) " cx="1026.98073" cy="795.821986" rx="250.804448" ry="193.913153"></ellipse>
+                <ellipse id="Crater-5" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" mask="url(#mask-2)" transform="translate(1395.269653, 237.839435) rotate(-88.000000) translate(-1395.269653, -237.839435) " cx="1395.26965" cy="237.839435" rx="76.1126093" ry="78.9057377"></ellipse>
+                <ellipse id="Crater-4" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" mask="url(#mask-2)" transform="translate(738.963057, 1173.742489) rotate(-100.000000) translate(-738.963057, -1173.742489) " cx="738.963057" cy="1173.74249" rx="85.731521" ry="78.9057377"></ellipse>
+                <ellipse id="Crater-3" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" mask="url(#mask-2)" transform="translate(1703.206203, 557.435463) rotate(-100.000000) translate(-1703.206203, -557.435463) " cx="1703.2062" cy="557.435463" rx="106.571625" ry="78.9057377"></ellipse>
+                <ellipse id="Crater-2" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" mask="url(#mask-2)" transform="translate(168.511632, 677.253269) rotate(-100.000000) translate(-168.511632, -677.253269) " cx="168.511632" cy="677.253269" rx="72.3349626" ry="43.4865033"></ellipse>
+                <ellipse id="Crater-1" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" mask="url(#mask-2)" transform="translate(606.130228, 367.660639) rotate(-13.000000) translate(-606.130228, -367.660639) " cx="606.130228" cy="367.660639" rx="210.520962" ry="100.182029"></ellipse>
+            </g>
+        </g>
+    </g>
+</svg>

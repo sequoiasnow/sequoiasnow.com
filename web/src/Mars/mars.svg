@@ -1,0 +1,47 @@
+
+<svg width="1401px" height="1400px" viewBox="1058 -1046 1401 1400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="planet-path-1" cx="700" cy="700" r="700"></circle>
+    </defs>
+    <g id="Planet" stroke="none" fill="none" transform="translate(1058.000000, -1046.000000)" fill-rule="evenodd">
+        <g id="Planet-Shape" stroke-width="1" transform="translate(1.000000, 0.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#planet-path-1"></use>
+            </mask>
+            <use id="Planet-Circle" fill="#8C4416" xlink:href="#planet-path-1"></use>
+            <path d="M1024.70924,365.68586 C1176.51275,371.19142 1346.81208,744.246941 1400.6377,699.844496 C1400.6377,296.139799 1073.37038,-31.1275198 669.665684,-31.1275198 C652.53604,-10.8822423 477.962806,208.747829 586.126025,344.800946 C694.289245,480.854062 872.905723,360.180301 1024.70924,365.68586 Z" id="Light-Valley" fill="#9E5318" mask="url(#mask-2)"></path>
+            <path d="M680,1400 C625.37938,1365.45167 658.076011,1079.60352 380,983.471402 C186.918584,916.722293 312.742786,578.461795 220,560 C145.321032,545.13407 106.563698,454.762929 52.5411206,433.444585 C-445.86717,1336.76139 293.400675,1400 680,1400 Z" id="Dark-Valley" fill="#713911" mask="url(#mask-2)"></path>
+        </g>
+        <ellipse id="Crater-29" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="1011" cy="499.5" rx="30" ry="30.5"></ellipse>
+        <ellipse id="Crater-28" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="351" cy="884.5" rx="30" ry="25.5"></ellipse>
+        <ellipse id="Crater-27" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="421" cy="569.5" rx="30" ry="30.5"></ellipse>
+        <ellipse id="Crater-26" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="476" cy="524.5" rx="15" ry="15.5"></ellipse>
+        <ellipse id="Crater-25" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="1281" cy="459.5" rx="30" ry="30.5"></ellipse>
+        <ellipse id="Crater-24" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="1076" cy="214.5" rx="65" ry="65.5"></ellipse>
+        <ellipse id="Crater-23" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="931" cy="129.5" rx="30" ry="30.5"></ellipse>
+        <ellipse id="Crater-22" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="1011" cy="499.5" rx="30" ry="30.5"></ellipse>
+        <ellipse id="Crater-21" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="936" cy="515.5" rx="15" ry="15.5"></ellipse>
+        <ellipse id="Crater-20" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="496" cy="895.5" rx="15" ry="15.5"></ellipse>
+        <ellipse id="Crater-19" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="61" cy="635.5" rx="15" ry="15.5"></ellipse>
+        <ellipse id="Crater-18" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="481" cy="84.5" rx="15" ry="15.5"></ellipse>
+        <ellipse id="Crater-17" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="1150" cy="251.5" rx="15" ry="15.5"></ellipse>
+        <ellipse id="Crater--16" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="176" cy="844.5" rx="15" ry="15.5"></ellipse>
+        <ellipse id="Crater-15" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="266" cy="371" rx="65" ry="67"></ellipse>
+        <ellipse id="Crater-14" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="681" cy="679.5" rx="40" ry="40.5"></ellipse>
+        <ellipse id="Crater-13" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="1066" cy="944" rx="65" ry="67"></ellipse>
+        <ellipse id="Crater-12" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="481" cy="275.5" rx="15" ry="15.5"></ellipse>
+        <ellipse id="Crater-11" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="811" cy="289.5" rx="30" ry="30.5"></ellipse>
+        <ellipse id="Crater-10" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="171" cy="630.5" rx="30" ry="30.5"></ellipse>
+        <ellipse id="Crater-9" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="721" cy="859.5" rx="40" ry="40.5"></ellipse>
+        <ellipse id="Crater--8" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="1266" cy="834.5" rx="15" ry="15.5"></ellipse>
+        <path d="M801,1301 C823.09139,1301 841,1281.86753 841,1259.5 C841,1237.13247 823.09139,1219 801,1219 C778.90861,1219 761,1237.13247 761,1259.5 C761,1281.86753 778.90861,1301 801,1301 Z" id="Crater-7" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;"></path>
+        <ellipse id="Crater-6" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="976" cy="1125.5" rx="25" ry="25.5"></ellipse>
+        <ellipse id="Crater-5" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="586" cy="1265.5" rx="15" ry="15.5"></ellipse>
+        <ellipse id="Crater-4" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="511" cy="1160.5" rx="30" ry="30.5"></ellipse>
+        <ellipse id="Crater-3" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="251" cy="1110.5" rx="50" ry="50.5"></ellipse>
+        <ellipse id="Crater-2" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="1086" cy="700" rx="25" ry="20"></ellipse>
+        <ellipse id="Crater-1" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="1086" cy="700" rx="25" ry="20"></ellipse>
+    </g>
+</svg>

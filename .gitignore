@@ -2,3 +2,4 @@ node_modules
 .stack*
 .stack-work
 api/.stack-work
+.DS_Store

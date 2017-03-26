@@ -1,0 +1,73 @@
+.mars-container {
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Makes sure the document doesn't expand from the asteroid's rotation... */
+  overflow: hidden;
+}
+
+.center-container {
+  position: relative;
+}
+
+/* Allows some clever drawing of svg's */
+@keyframes draw-svg {
+  to { stroke-dashoffset: 0; }
+}
+
+$planet-size: 50vh;
+.center-container  .planet-container > svg {
+  width: $planet-size;
+  height: $planet-size;
+
+  /* Some animation trickery. */
+  ellipse {
+    stroke: #000;
+    stroke-width: 1;
+    stroke-dasharray: 100px;
+    stroke-dashoffset: 100px;
+    animation-name: draw;
+    animation-duration: 5s;
+    animation-fill-mode: forwards; // Stay on the last frame
+    animation-iteration-count: 1; // Run only once
+    animation-timing-function: linear;
+  }
+}
+
+/* Allows the orbit of the asteroid around the planet. */
+@keyframes asteroid-orbit {
+  from { transform: rotate(0deg) translateX($planet-size * 1.3) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX($planet-size * 1.3) rotate(-360deg); }
+}
+
+/* A tiny rotational animation, for the mobile asteroid. */
+@keyframes asteroid-wobble {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.center-container .asteroid-container > svg  {
+  $asteroid-width: 20vh;
+  animation: asteroid-orbit 400s linear infinite;
+  width: $asteroid-width;
+  height: $asteroid-width;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  left: calc(50% - #{$asteroid-width / 2});
+  top: calc(50% - #{$asteroid-width / 2});
+
+  @media (max-width: 600px) {
+    animation: asteroid-wobble 3s linear infinite;
+    top: -$asteroid-width;
+    left: 10px; 
+  }
+}
+

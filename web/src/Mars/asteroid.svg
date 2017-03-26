@@ -1,0 +1,24 @@
+
+<svg width="892px" height="732px" viewBox="2832 -3418 892 732" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M420,732 C508.578197,732 473.719293,617.080417 540,572 C639.023284,504.649919 646.563238,328.916174 780,362 C1043.46695,427.323039 770.279963,-17.8989173 660,42.2621813 C549.720037,102.42328 443.729253,72.2059808 360,12 C286.001055,-41.2093487 274.739701,105.976441 220,132 C116.426074,181.239622 26.5238114,164.300649 0,272 C70.0996954,299.714952 20,362 20,362 C20,416.88945 -30.4603349,509.677777 56.1040667,515.83285 C223.202522,527.714214 258.426046,732 420,732 Z" id="asteroid-path-1"></path>
+    </defs>
+    <g id="Asteroid" stroke="none" fill="none" transform="translate(2832.000000, -3418.000000)" fill-rule="evenodd">
+        <g id="Asteroid-Base" stroke-width="1">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#asteroid-path-1"></use>
+            </mask>
+            <use id="Asteroid-Mask" fill="#D49F6D" xlink:href="#asteroid-path-1"></use>
+            <path d="M640,912 C877.482442,912 220,573.665222 220,292 C220,10.3347776 857.482442,-88 620,-88 C382.517558,-88 -280,120.334778 -280,402 C-280,683.665222 402.517558,912 640,912 Z" id="Asteroid-Shape" fill-opacity="0.15" fill="#161616" style="mix-blend-mode: darken;" mask="url(#mask-2)"></path>
+        </g>
+        <ellipse id="Crater-7" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" cx="199.089911" cy="471.779542" rx="27.0899113" ry="28.779542"></ellipse>
+        <ellipse id="Crater-6" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" transform="translate(481.826535, 393.837741) rotate(30.000000) translate(-481.826535, -393.837741) " cx="481.826535" cy="393.837741" rx="117.669431" ry="95.843638"></ellipse>
+        <ellipse id="Crater-5" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" transform="translate(654.615925, 118.048931) rotate(-88.000000) translate(-654.615925, -118.048931) " cx="654.615925" cy="118.048931" rx="35.7096035" ry="39"></ellipse>
+        <ellipse id="Crater-4" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" transform="translate(346.697847, 580.628968) rotate(-100.000000) translate(-346.697847, -580.628968) " cx="346.697847" cy="580.628968" rx="40.2224894" ry="39"></ellipse>
+        <ellipse id="Crater-3" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" transform="translate(799.089911, 276.012667) rotate(-100.000000) translate(-799.089911, -276.012667) " cx="799.089911" cy="276.012667" rx="50" ry="39"></ellipse>
+        <ellipse id="Crater-2" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" transform="translate(79.060272, 335.233891) rotate(-100.000000) translate(-79.060272, -335.233891) " cx="79.0602717" cy="335.233891" rx="33.9372524" ry="21.4936667"></ellipse>
+        <ellipse id="Crater-1" fill="#000000" opacity="0.202013144" style="mix-blend-mode: darken;" transform="translate(284.376929, 182.214441) rotate(-13.000000) translate(-284.376929, -182.214441) " cx="284.376929" cy="182.214441" rx="98.7697067" ry="49.5160334"></ellipse>
+    </g>
+</svg>

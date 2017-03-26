@@ -17,12 +17,15 @@ import Api.Types.Web              ( Action
                                   , loggingM
                                   , defaultH
                                   , Error )
-import Api.Types.Post             ( getPost )
+import Api.Types.Post             ( getPost
+                                  , insertPost
+                                  , getAllPosts )
 import Web.Scotty.Trans           ( defaultHandler
                                   , ScottyT
                                   , scottyOptsT
                                   , middleware
-                                  , get )
+                                  , get
+                                  , post )
 
 -- | The entrypoint to the web application, the one source of all truth for
 -- the program.
@@ -32,7 +35,9 @@ application = do
   -- middleware (loggingM env)
   -- defaultHandler (defaultH env)
   -- routes
+  get "/posts" $ getAllPosts
   get "/posts/:id" $ getPost
+  post "/posts" $ insertPost 
 
 -- | Runs the web application, creating a web server on the provided port.
 -- Can also be seen as performing the runConfig action of the ConfigM

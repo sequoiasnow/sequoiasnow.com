@@ -6,8 +6,10 @@ module Api.Types.Web
 , queryDB
 , queryDB_
 , executeDB
+, notFoundA
 ) where
 
+import GHC.Int                              ( Int64 )
 import Web.Scotty.Trans                     ( ActionT
                                             , ScottyT
                                             , status
@@ -17,6 +19,7 @@ import Network.Wai                          ( Middleware )
 import Network.HTTP.Types.Status            ( internalServerError500 )
 import Network.Wai.Middleware.RequestLogger ( logStdout
                                             , logStdoutDev )
+import Network.HTTP.Types.Status            ( notFound404 )
 import Api.Config                           ( ConfigM
                                             , Config( conn ) )
 import Data.Text.Lazy                       ( Text )
@@ -51,6 +54,11 @@ defaultH e x = do
         Production  -> ""
   text r
 
+-- | Makes a not found status and error.
+notFoundA :: Action ()
+notFoundA = do
+  status notFound404
+
 -- | Logging middleware based off of development or production setting.
 loggingM :: Environment -> Middleware
 loggingM e = case e of
@@ -77,8 +85,7 @@ queryDB_ q = do
 -- | Lift's the database connection into scope and executes a query
 -- without a result.
 executeDB :: (MonadTrans t, MonadIO (t ConfigM), ToRow q) =>
-             Query -> q -> t ConfigM ()
+             Query -> q -> t ConfigM Int64
 executeDB q args = do
   c <- lift $ asks conn
   liftIO $ execute c q args
-  return ()

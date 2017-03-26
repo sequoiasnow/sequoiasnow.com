@@ -1,0 +1,34 @@
+
+<svg width="307px" height="134px" viewBox="-696 -200 307 134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="1" width="100" height="40"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="100" height="40" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="0" y="1" width="100" height="40"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="100" height="40" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Satellite" stroke="none" fill="none" transform="translate(-696.000000, -200.000000)" fill-rule="evenodd">
+        <g id="Group" stroke-width="1" transform="translate(0.000000, 33.000000)" stroke="#979797">
+            <use id="Rectangle" mask="url(#mask-2)" stroke-width="2" fill="#608BDF" xlink:href="#path-1"></use>
+            <path d="M140.5819,20.9019497 L99.5,1.5" id="Path-5"></path>
+            <path d="M139.5,20.5 L99.4748322,20.8713787" id="Path-6"></path>
+            <path d="M140.5,20.5 L100.008369,40.7388851" id="Path-7"></path>
+        </g>
+        <g id="Group" stroke-width="1" transform="translate(236.000000, 54.000000) scale(-1, 1) translate(-236.000000, -54.000000) translate(165.000000, 33.000000)" stroke="#979797">
+            <use id="Rectangle" mask="url(#mask-4)" stroke-width="2" fill="#608BDF" xlink:href="#path-3"></use>
+            <path d="M140.5819,20.9019497 L99.5,1.5" id="Path-5"></path>
+            <path d="M139.5,20.5 L99.4748322,20.8713787" id="Path-6"></path>
+            <path d="M140.5,20.5 L100.008369,40.7388851" id="Path-7"></path>
+        </g>
+        <path d="M153,98 C178,98 197.318922,113.940654 197.318922,113.940654 C200.456495,116.182569 199.869846,118 196.00794,118 L109.99206,118 C106.130452,118 105.509391,116.127437 108.699228,113.928595 C108.699228,113.928595 128,98 153,98 Z" id="Triangle" fill="#D8D8D8"></path>
+        <polygon id="Triangle-2" fill="#8B8989" transform="translate(154.000000, 126.000000) scale(1, -1) translate(-154.000000, -126.000000) " points="154 118 156 134 152 134"></polygon>
+        <path d="M141.5,0 C143,0 143,20 143,20 L140,20 C140,20 140,1.2246468e-15 141.5,0 Z" id="Triangle-3" fill="#D8D8D8"></path>
+        <path d="M146,9.37829992 C147,9.03811675 147,18 147,18 L145,18 C145,18 145,9.71848309 146,9.37829992 Z" id="Triangle-3" fill="#D8D8D8"></path>
+        <path d="M134,28.0035755 C134,20.2696143 140.266025,14 147.997262,14 L160.000014,14 C167.179708,14 173,19.8178435 173,27.0091265 L173,85.9999489 C173,90.4182551 169.418268,94 164.990072,94 L142.009928,94 C137.586167,94 134,90.4202137 134,85.9999489 L134,28.0035755 Z" id="Rectangle-2" fill="#C6C6C6"></path>
+    </g>
+</svg>
