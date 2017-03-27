@@ -1,33 +1,31 @@
 import React from 'react'
-import { createStore
-       , combineReducers
-       , applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import { Route
-       , Match } from 'react-router'
-import { createBrowserHistory } from 'history'
-import { ConnectedRouter
-       , routerReducer
-       , routerMiddleware
-       , push } from 'react-router-redux'
-import Routes from './Routes'
+       , Router 
+       , Match
+       , browserHistory } from 'react-router'
+import { syncHistoryWithStore  } from 'react-router-redux'
+import store from './configureStore'
+import NotFound from './NotFound'
+import Home from './Home'
+import SiteContainer from './SiteContainer'
 import './app.scss'
 
 /* Create the browser history. */
-const history = createBrowserHistory()
-
-/* Create the initial store */
-const store = createStore(
-  combineReducers({
-    routing: routerReducer
-  }),
-  applyMiddleware(routerMiddleware(history))
-)
-
+const history = syncHistoryWithStore(browserHistory, store)
 
 const App = () => {
   return (
-    <Routes />
+    <Provider store={store}>
+      <div> 
+        <Router history={history}>
+          <Route path="/" component={SiteContainer}>
+            <Route path="home" component={Home} />
+            <Route path="**" component={NotFound} />
+          </Route> 
+        </Router>
+      </div>
+    </Provider>
   )
 }
 

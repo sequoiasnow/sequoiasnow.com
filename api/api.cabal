@@ -34,6 +34,7 @@ library
                      , text
                      , warp
                      , wai
+                     , wai-cors
                      , http-types
                      , wai-extra
                      , transformers

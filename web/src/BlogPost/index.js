@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 const BlogPost = ({ body = 'Example Body', title = 'Test 1', url = '' }) => {
   return (
     <article>
