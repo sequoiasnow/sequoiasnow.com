@@ -1,5 +1,6 @@
 module Api.Types.Web
 ( Action
+, Application
 , Error
 , loggingM
 , defaultH
@@ -35,6 +36,9 @@ import Database.PostgreSQL.Simple           ( FromRow
                                             , query
                                             , query_
                                             , execute )
+
+-- | The primary type of the actual scotty application run by scottyOptsT
+type Application = ScottyT Error ConfigM ()
 
 -- | The primary action that allows database interaction and
 -- error catching.

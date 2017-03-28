@@ -2,6 +2,10 @@
 
 body, html {
   padding: 0;
-  margin: 0;
+  margin: 0; 
 }
 
+/* Eliminate all confusion over box sizing */
+* {
+  box-sizing: border-box;
+}

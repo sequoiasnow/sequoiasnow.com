@@ -1,0 +1,95 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "periodic-table",
+        "scope": null,
+        "escapedName": "periodic-table",
+        "name": "periodic-table",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "/Users/sequoiasnow/Documents/Sites/sequoiasnow.com/web"
+    ]
+  ],
+  "_from": "periodic-table@latest",
+  "_id": "periodic-table@0.0.7",
+  "_inCache": true,
+  "_location": "/periodic-table",
+  "_nodeVersion": "6.9.1",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/periodic-table-0.0.7.tgz_1485875855531_0.6021583892870694"
+  },
+  "_npmUser": {
+    "name": "andrejewski",
+    "email": "christopher.andrejewski@gmail.com"
+  },
+  "_npmVersion": "3.10.8",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "periodic-table",
+    "scope": null,
+    "escapedName": "periodic-table",
+    "name": "periodic-table",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/periodic-table/-/periodic-table-0.0.7.tgz",
+  "_shasum": "99d35d188d7ea789b71c461d4a783c52509cff96",
+  "_shrinkwrap": null,
+  "_spec": "periodic-table",
+  "_where": "/Users/sequoiasnow/Documents/Sites/sequoiasnow.com/web",
+  "author": {
+    "name": "Chris Andrejewski",
+    "email": "christopher.andrejewski@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/andrejewski/periodic-table/issues"
+  },
+  "dependencies": {},
+  "description": "periodic elements data",
+  "devDependencies": {
+    "csvtojson": "^0.3.19",
+    "mocha": "^2.2.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "99d35d188d7ea789b71c461d4a783c52509cff96",
+    "tarball": "https://registry.npmjs.org/periodic-table/-/periodic-table-0.0.7.tgz"
+  },
+  "gitHead": "dd4ce87e18006153db441201656bda5d27a4d74f",
+  "homepage": "https://github.com/andrejewski/periodic-table",
+  "keywords": [
+    "periodic",
+    "table",
+    "elements",
+    "data"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "andrejewski",
+      "email": "chrisishereladies@gmail.com"
+    }
+  ],
+  "name": "periodic-table",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrejewski/periodic-table.git"
+  },
+  "scripts": {
+    "build": "csvtojson data.csv > data.json",
+    "test": "mocha"
+  },
+  "version": "0.0.7"
+}

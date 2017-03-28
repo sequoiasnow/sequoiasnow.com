@@ -1,10 +1,7 @@
 {-# LANGUAGE QuasiQuotes #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 module Api.Types.Post
-( getPost
-, insertPost
-, getAllPosts
-) where
+( postRoutes ) where
 
 import Control.Applicative                ( (<$>)
                                           , (<*>) )
@@ -26,6 +23,7 @@ import Database.PostgreSQL.Simple.FromRow ( fromRow
 import Database.PostgreSQL.Simple.ToField ( toField )
 import Database.PostgreSQL.Simple.SqlQQ   ( sql )
 import Api.Types.Web                      ( Action
+                                          , Application
                                           , Error
                                           , queryDB
                                           , queryDB_
@@ -35,12 +33,24 @@ import Network.HTTP.Types.Status          ( status202
                                           , status200 )
 import Web.Scotty.Trans                   ( json
                                           , jsonData
+                                          , get
+                                          , put
+                                          , post
+                                          , delete
                                           , status
                                           , param
+                                          , body
                                           , ActionT )
 import Data.Time                          ( UTCTime )
 import Api.Types.Web                      ( notFoundA )
+import Data.Yaml                          ( decode )
+import Text.Regex.Base.RegexLike          ( makeRegexOpts
+                                          , match
+                                          , defaultCompOpt
+                                          , defaultExecOpt )
+import Text.Regex.Posix                   ( compNewline )
 import qualified Data.Text as             T
+import qualified Data.ByteString.Char8 as BS
 
 -- Column Types
 
@@ -63,7 +73,7 @@ data PostFields = PostFields
 
 instance FromJSON PostFields where
   parseJSON (Object v) = PostFields <$> v .: "title"
-                                    <*> v .: "body"
+                                    <*> (return "")
                                     <*> v .: "tags"
   parseJSON _ = mzero
 
@@ -221,16 +231,19 @@ getAllPosts = do
 -- | POST /posts                                                   
 insertPost :: Action ()
 insertPost = do
-  pf <- jsonData :: Action PostFields
-  [Only (id :: PostID)] <- queryDB insertPostQ pf
-  mapM_ (executeDB insertPostTagQ) (map (\t -> (t, id)) (post_tags pf))
-  mbPost <- queryDB getPostQ (Only id) :: Action [Post]
-  tags <- getPostTags id
+  raw <- body >>= BS.unpack
+  -- Break apart the post into metadata and body...
+  let regex = makeRegexOpts (defaultCompOpt - compNewLine) defaultExecOpt
+               ("---([^-]*)---" :: String)
+  let (_, _, postMatch, (meta:_)) = match regex raw :: (Stirng, String, String, [String])
+  let pf = decode meta :: PostFields
+  let pf' = pf { post_body = T.pack postMatch }
+  -- Insert the new post into the database
+  [Only (id :: PostID)] <- queryDB insertPostQ pf'
+  mapM_ (executeDB insertPostTagQ) (map (\t -> (t, id)) (post_tags pf'))
   -- Run the status response.
   case mbPost of
-    [p] -> do
-      status status201
-      json $ setPostTags p tags
+    [p] -> status status201 >> json $ object [ "id" .= id ]
     _   -> notFoundA
 
 -- | DELETE /posts/:id
@@ -244,3 +257,11 @@ deletePost = do
     then status status202
     else notFoundA
     
+-- | All routes for the post application. This is the only visible function
+-- of this module and the only entry and exitpoint for all data.
+postRoutes :: Application
+postRoutes = do
+  get "/posts" getAllPosts
+  get "/posts:/id" getPost
+  post "/posts" insertPost
+  delete "/posts/:id" deletePost

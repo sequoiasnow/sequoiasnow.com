@@ -38,6 +38,9 @@ library
                      , http-types
                      , wai-extra
                      , transformers
+                     , regex-base
+                     , regex-posix
+                     , yaml
   default-language:    Haskell2010
   default-extensions:  OverloadedStrings
                      , DeriveDataTypeable

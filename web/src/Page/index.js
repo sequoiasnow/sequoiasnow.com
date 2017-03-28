@@ -12,10 +12,7 @@ const Page = ({ navigateTo, title = 'Title Not Found Or something longer', child
   };
   return (
     <section className={styles.header}> 
-      <NavSVG />
-      <section className={styles.documentTitle}>
-        <span>{title}</span>
-      </section>
+      <NavSVG onHomeClick={onHomeClick} title={title} />
       <section className={styles.content}>
         {children}
       </section>

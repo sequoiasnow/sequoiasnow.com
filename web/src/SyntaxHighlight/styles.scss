@@ -1,10 +1,14 @@
-:global .syntax-highlight {
+.syntax-highlight {
   background-color: #212026;
   padding: 10px;
   line-height: 1.5;
+  width: 100%;
+  overflow-y: scroll;
 }
 
-:global .syntax-highlight .token {
+.syntax-highlight :global .token {
+  color: white;
+  
   &.hvariable {
     color: #c5c8c6;
   }
@@ -16,6 +20,10 @@
 
   &.builtin {
     color: #eeeeec;
+  }
+
+  &.property {
+    color: #efc57a;
   }
 
   &.string {

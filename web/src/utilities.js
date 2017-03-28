@@ -25,3 +25,11 @@ export const sanitizeLineBreaks = (a) => {
     return (<span key={index}>{item}<br /></span>)
   })
 }
+
+/*******************************************************************************
+* getNumbDigits
+   - Get's the number of digits in a real number. Not a string, a number.
+ *******************************************************************************/
+export const getNumbDigits = (n) => {
+  return n.toString().length
+}

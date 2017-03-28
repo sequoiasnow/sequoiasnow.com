@@ -1,0 +1,26 @@
+.page {
+  dispaly: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-contnet: center;
+}
+
+.input-container input {
+  padding: 10px;
+  font-size: 1.7em;
+  width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  text-align: center;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.letters-container svg {
+  width: 100%;
+}
