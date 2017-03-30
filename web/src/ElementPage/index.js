@@ -1,44 +1,20 @@
 import React from 'react'
-import Element, { stringToSymbols } from '../Element'
+import { stringToSymbols
+       , groupSymbolsByWidth
+       , ElementSVG } from '../Element'
 import styles from './styles.scss'
 
 export default class ElementPage extends React.Component {
   constructor(props) {
     super(props)
+    console.log('props are...')
+    console.log(this.props.location)
     this.state = { letters: 'Type Something' }
   }
 
   render() {
     const elems = stringToSymbols(this.state.letters)
-    let elemGroups = ((elems) => {
-      const nTillSpace = (start, array) => {
-        let i = start;
-        while ( i < array.length && array[i] != ' ' ) {
-          i++
-        }
-        return i - start
-      }
-      
-      /* Split based off of spaces. */
-      let groups = []
-      let subgroup = []
-      let xOffset = 0
-      for (let i = 0; i < elems.length; i++) {
-        const e = elems[i]
-        if ( ( e == ' '  && (xOffset + nTillSpace(i + 1, elems) * 61) > 500 ) || ( xOffset > 500 )) {
-          groups.push(subgroup)
-          subgroup = []
-          xOffset = 0
-        } else {
-          subgroup.push(e)
-        }
-        xOffset += 61
-      }
-      groups.push(subgroup)
-
-      
-      return groups
-    })(elems)
+    let elemGroups = groupSymbolsByWidth(elems)
     
     return (
       <div className={styles.page}>
@@ -51,7 +27,7 @@ export default class ElementPage extends React.Component {
                return (
                  <g key={group+'-'+index} transform={`translate(0, ${index * 68})`}>
                    {group.map((s, i) => {
-                      return <Element symbol={s} key={group+'-'+i} transform={`translate(${61 * i}, 0)`}/>
+                      return <ElementSVG symbol={s} key={group+'-'+i} transform={`translate(${61 * i}, 0)`}/>
                     })}
                  </g>
                )

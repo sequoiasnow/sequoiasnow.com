@@ -13,9 +13,9 @@ export const navigateTo = push;
 import Api from './Api'
 
 /* Constants for the fetching process. */
-export const POST_BEGIN_FETCH_ALL = 'POST_BEGIN_FETCH_ALL'
-export const POST_FAIL_FETCH_ALL  = 'POST_FAIL_FETCH_ALL'
-export const POST_DONE_FETCH_ALL  = 'POST_DONE_FETCH_ALL'
+export const POST_BEGIN_FETCH_ALL = '[s]POST_BEGIN_FETCH_ALL'
+export const POST_FAIL_FETCH_ALL  = '[f]POST_FAIL_FETCH_ALL'
+export const POST_DONE_FETCH_ALL  = '[f]POST_DONE_FETCH_ALL'
 
 export const refreshAllPosts = () => {
   return (dispatch, getState) => {

@@ -1,7 +1,10 @@
 import { createStore
        , applyMiddleware
-       , combineReducers } from 'redux'
+       , combineReducers
+       , compose } from 'redux'
+import { responsiveStoreEnhancer } from 'redux-responsive'
 import * as reducers from './reducers'
+import * as listeners from './listeners'
 import thunk from 'redux-thunk'
 import createLogger from 'redux-logger'
 import { routerMiddleware } from 'react-router-redux'
@@ -9,7 +12,10 @@ import { routerMiddleware } from 'react-router-redux'
 const loggerMiddleware = createLogger()
 const store = createStore(
   combineReducers(reducers),
-  applyMiddleware(thunk, loggerMiddleware)
+  compose(
+    responsiveStoreEnhancer,
+    applyMiddleware(thunk, loggerMiddleware)
+  )
 );
 
 /* Handle Webpack weirdness */

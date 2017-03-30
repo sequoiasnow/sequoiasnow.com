@@ -17,10 +17,6 @@ const history = syncHistoryWithStore(browserHistory, store)
 
 const App = () => {
   return (
-    <ElementPage />
-  )
-  
-  return (
     <Provider store={store}>
       <div> 
         <Router history={history}>

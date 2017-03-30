@@ -44,3 +44,9 @@ export const posts = (state = initialPostState, action) => {
       return state
   }
 }
+
+/*******************************************************************************
+* BREAKPOINTS
+ *******************************************************************************/
+import { responsiveStateReducer } from 'redux-responsive'
+export const browser = responsiveStateReducer

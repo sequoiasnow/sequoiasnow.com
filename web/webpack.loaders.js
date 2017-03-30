@@ -4,7 +4,8 @@ module.exports = [
     exclude: /(node_modules|bower_components|public)/,
     loader: "babel",
     query: {
-      presets: ['stage-2']
+      presets: ['stage-2'],
+      plugins: ["transform-decorators-legacy"]
     }
   },
   {
