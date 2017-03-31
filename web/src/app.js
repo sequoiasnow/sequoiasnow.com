@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { Route
        , Router 
        , Match
+       , IndexRoute
        , browserHistory } from 'react-router'
 import { syncHistoryWithStore  } from 'react-router-redux'
 import store from './configureStore'
@@ -21,6 +22,7 @@ const App = () => {
       <div> 
         <Router history={history}>
           <Route path="/" component={SiteContainer}>
+            <IndexRoute component={Home} />
             <Route path="elements" component={ElementPage} />
             <Route path="home" component={Home} />
             <Route path="**" component={NotFound} />

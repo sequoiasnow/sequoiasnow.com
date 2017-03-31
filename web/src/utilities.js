@@ -48,3 +48,18 @@ export function times(n, start = 0) {
     return results
   }
 }
+
+/*******************************************************************************
+* hexToRgba
+   - Convert's a hex value to an rgba value of given opacity...
+ *******************************************************************************/
+export function hexToRgba(hex, opacity = 1) {
+  if ( /^#([A-Fa-f0-9]{3}){1,2}$/.test(hex) ) {
+    let c = hex.substring(1).split('')
+    if ( c.length == 3 )
+      c = [c[0], c[0], c[1], c[1], c[2], c[2]]
+    c = '0x' + c.join('')
+    return `rgba(${(c>>16)&255}, ${(c>>8)&255}, ${c&255}, ${opacity})`
+  }
+  return hex; // could not parse.
+}

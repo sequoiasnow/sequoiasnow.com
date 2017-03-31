@@ -8,6 +8,11 @@ import { getNumbDigits } from '../utilities'
 /* Re-export Raw element items for conveniance */
 export { RawElement, elementColors, SpaceElement }
 
+export const randomColor = () => {
+  const colors = Object.values(elementColors)
+  return colors[Math.floor(Math.random() * colors.length)]
+}
+
 /* For conveniance, a group of props all filled out to question marks... */
 const questionElemData = {
   groupBlock: "custom",
@@ -34,15 +39,16 @@ export const ElementSVG = ({ symbol = ' ', ...rest }) => {
     'Me': () => {
       return (
         <RawElement groupBlock="custom" 
-                    atomicNumber="3"
+                    atomicNumber={3}
                     symbol="Me"
                     name="Sequoia"
                     atomicMass="4.8x10²⁸"
                     ionizationEnergy="458"
                     electronicConfiguration="1s²"
-                    oxidationStates="+1" />
-      )
-    }
+                    oxidationStates="+1"
+                    {...rest} />
+      ) 
+    },
     'default': () => {
       if ( Object.keys(symbols).includes(symbol) ) {
         return <RawElement {...symbols[symbol]} {...rest} />
@@ -94,6 +100,12 @@ export const stringToSymbols = (str) => {
     }
   }
   return elements
+}
+
+
+/* Returns a random symbols. */
+export const randomSymbol = () => {
+  return symbolsArr[Math.floor(Math.random() * symbolsArr.length)]
 }
 
 /* Convert the sequence of element's into groups of words */

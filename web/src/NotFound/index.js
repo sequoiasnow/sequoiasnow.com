@@ -9,8 +9,8 @@ const NotFound = () => {
   const randomHaiku = sanitizeLineBreaks(getRandom(haikus))
   
   return (
-    <Page title="404. Page Not Found">
-      <div className={styles.container}>
+    <Page title="404. Page Not Found"> 
+      <div className={styles.container}> 
         <div className={styles.haikuContainer}>
           {randomHaiku}
         </div>
