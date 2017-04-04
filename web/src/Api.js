@@ -8,8 +8,7 @@ const API_URL = 'http://localhost:3000'
 const Api = (args) => {
   /* Default values  */
   let request = {
-    method: 'GET',
-    mode: 'no-cors' 
+    method: 'GET'
   }
   let url
   
@@ -28,6 +27,8 @@ const Api = (args) => {
     } 
   }
   
-  return fetch(API_URL + url, request).then((resp) => { return resp.json() })
+  return fetch(API_URL + url, request).then((resp) => {
+    return resp.json()
+  })
 }
 export default Api;

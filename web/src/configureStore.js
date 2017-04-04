@@ -17,7 +17,7 @@ const store = createStore(
     responsiveStoreEnhancer,
     applyMiddleware(thunk, routerMiddleware(browserHistory), loggerMiddleware)
   )
-);
+)
 
 /* Handle Webpack weirdness */
 if ( module.hot ) {

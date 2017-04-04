@@ -6,15 +6,22 @@ import { Route
        , IndexRoute
        , browserHistory } from 'react-router'
 import { syncHistoryWithStore  } from 'react-router-redux'
+import { getPostInfo
+       , refreshAllExcerpts } from './actions'
 import store from './configureStore'
 import NotFound from './NotFound'
 import Home from './Home'
 import SiteContainer from './SiteContainer'
+import Post from './Post' 
 import ElementPage from './ElementPage'
 import './app.scss'
 
 /* Create the browser history. */
 const history = syncHistoryWithStore(browserHistory, store)
+
+const onBlogEnter = ({ params }) => {
+  store.dispatch(getPostInfo(params.name))
+}
 
 const App = () => {
   return (
@@ -22,10 +29,10 @@ const App = () => {
       <div> 
         <Router history={history}>
           <Route path="/" component={SiteContainer}>
-            <IndexRoute component={Home} />
+            <IndexRoute component={Home} onEnter={() => store.dispatch(refreshAllExcerpts())}/>
             <Route path="elements" component={ElementPage} />
-            <Route path="home" component={Home} />
-            <Route path="**" component={NotFound} />
+            <Route path="/:name" component={Post} onEnter={onBlogEnter} />
+            <Route path="/notfound" component={NotFound} />
           </Route> 
         </Router>
       </div>

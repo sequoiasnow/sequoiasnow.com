@@ -4,8 +4,6 @@ import SyntaxHighlight from '../SyntaxHighlight'
 import moment from 'moment'
 
 const Home = ({ refreshAllPosts, postData }) => {
-  refreshAllPosts()
-
   return (
     <Page title="Sequioa's Blog">
       <SyntaxHighlight language="json" code={JSON.stringify(postData, null, '   ')} />
@@ -14,14 +12,11 @@ const Home = ({ refreshAllPosts, postData }) => {
 }
 
 import { connect } from 'react-redux'
-import { refreshAllPosts } from '../actions'
+import { refreshAllExcerpts } from '../actions'
 
 const ConnectedHome = connect(
   (state) => {
-    return { postData : state.posts.all } 
-  },
-  (dispatch) => {
-    return { refreshAllPosts: () => { dispatch(refreshAllPosts()) } }
+    return { postData : state.posts.excerpts } 
   }
 )(Home)
 

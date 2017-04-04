@@ -30,7 +30,8 @@ import Api.Types.Web                      ( Action
                                           , executeDB )
 import Network.HTTP.Types.Status          ( status202
                                           , status201
-                                          , status200 )
+                                          , status200
+                                          , status500 )
 import Web.Scotty.Trans                   ( json
                                           , jsonData
                                           , get
@@ -44,13 +45,15 @@ import Web.Scotty.Trans                   ( json
 import Data.Time                          ( UTCTime )
 import Api.Types.Web                      ( notFoundA )
 import Data.Yaml                          ( decode )
-import Text.Regex.Base.RegexLike          ( makeRegexOpts
-                                          , match
-                                          , defaultCompOpt
-                                          , defaultExecOpt )
-import Text.Regex.Posix                   ( compNewline )
+import Api.Types.User                     ( authenticate )
+import Text.Regex.Base.RegexLike       
+import Text.Regex.Posix                   ( compNewline
+                                          , compExtended
+                                          , defaultExecOpt
+                                          , match )
 import qualified Data.Text as             T
-import qualified Data.ByteString.Char8 as BS
+import qualified Data.ByteString.Lazy.Char8 as  BSL
+import qualified Data.ByteString.Char8 as BSC
 
 -- Column Types
 
@@ -224,27 +227,30 @@ getAllPosts = do
   posts  <- queryDB_ getAllPostsQ :: Action [Post]
   posts' <- mapM (\p -> do tags <- getPostTags (post_id p)
                            return $ setPostTags p tags ) posts
-  status status201
+  status status200
   json posts'
 
   
 -- | POST /posts                                                   
 insertPost :: Action ()
 insertPost = do
-  raw <- body >>= BS.unpack
+  raw <- body
+  let raw' = BSL.unpack raw :: String
   -- Break apart the post into metadata and body...
-  let regex = makeRegexOpts (defaultCompOpt - compNewLine) defaultExecOpt
-               ("---([^-]*)---" :: String)
-  let (_, _, postMatch, (meta:_)) = match regex raw :: (Stirng, String, String, [String])
-  let pf = decode meta :: PostFields
-  let pf' = pf { post_body = T.pack postMatch }
+  let regex = makeRegexOpts compExtended defaultExecOpt ("---([^-]*)---" :: String) 
+  let (_, _, postMatch, groups) = match regex raw' :: (String, String, String, [String])
+  let meta = head groups
+  let mbPf = decode (BSC.pack meta) :: Maybe PostFields
+  let mbPf' = mbPf >>= \pf -> Just $ pf { post_body = T.pack postMatch }
   -- Insert the new post into the database
-  [Only (id :: PostID)] <- queryDB insertPostQ pf'
-  mapM_ (executeDB insertPostTagQ) (map (\t -> (t, id)) (post_tags pf'))
-  -- Run the status response.
-  case mbPost of
-    [p] -> status status201 >> json $ object [ "id" .= id ]
-    _   -> notFoundA
+  case mbPf' of
+    Just pf' -> do [Only (id :: PostID)] <- queryDB insertPostQ pf'
+                   mapM_ (executeDB insertPostTagQ) (map (\t -> (t, id)) (post_tags pf'))
+                   -- Run the status response.
+                   status status201
+                   json $ object [ "id" .= id ]
+            
+    Nothing  -> status status500
 
 -- | DELETE /posts/:id
 deletePost :: Action ()
@@ -261,7 +267,7 @@ deletePost = do
 -- of this module and the only entry and exitpoint for all data.
 postRoutes :: Application
 postRoutes = do
-  get "/posts" getAllPosts
-  get "/posts:/id" getPost
-  post "/posts" insertPost
-  delete "/posts/:id" deletePost
+  get "/posts"        $ getAllPosts
+  get "/posts/:id"    $ getPost
+  post "/posts"       $ authenticate insertPost
+  delete "/posts/:id" $ authenticate deletePost

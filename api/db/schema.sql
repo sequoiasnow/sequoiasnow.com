@@ -19,7 +19,7 @@ CREATE OR REPLACE FUNCTION add_post_url() RETURNS trigger AS $$
 $$ LANGUAGE plpgsql;
 
 --------------------------------------------------------------------------------
--- SCHEMA
+-- POSTS
 
 CREATE TABLE posts (
        post_id SERIAL PRIMARY KEY,
@@ -56,4 +56,12 @@ CREATE TRIGGER posts_insert_url
 CREATE TABLE post_tags (
        tag VARCHAR(50),
        post_id INTEGER REFERENCES posts(post_id)
+);
+
+--------------------------------------------------------------------------------
+-- USERS
+
+CREATE TABLE users (
+       username VARCHAR(40),
+       token TEXT
 );

@@ -1,8 +1,12 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
+{-# LANGUAGE FlexibleContexts #-}
+
 module Api.Server
 ( runApplication
 ) where
+
+import Control.Monad.Reader.Class   ( MonadReader )
 
 import Control.Monad.Reader         ( ReaderT
                                     , ask
@@ -27,11 +31,11 @@ import Network.Wai.Middleware.Cors  ( simpleCors )
 
 -- | The entrypoint to the web application, the one source of all truth for
 -- the program.
-application :: Application
-application = do
+application :: Config -> Application
+application c = do
+  let e = environment c
   middleware simpleCors
-  -- c <- lift (asks environment) :: ScottyT Error ConfigM (Environment)
-  -- middleware (loggingM env)
+  middleware (loggingM e)
   -- defaultHandler (defaultH env)
   -- routes
   postRoutes
@@ -44,5 +48,5 @@ runApplication :: Config -> IO ()
 runApplication c = do
   o <- getOptions $ environment c
   let r = \m -> runReaderT (runConfigM m) c
-  scottyOptsT o r application
+  scottyOptsT o r (application c)
 

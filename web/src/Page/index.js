@@ -39,8 +39,15 @@ export default class Page extends React.Component {
         </section>
         <section className={styles.wrapper}>
           <section className={styles.background} style={{backgroundColor: bgColor}}>
-            {times(10)((n) => {
-               return <Element key={n} symbol={randomSymbol()}/>
+            {times(40)((n) => {
+               const left = Math.random() * 100
+               const top = Math.random() * 30 + n * 30
+               const width = Math.random() * 300 + 100
+               return (
+                 <div className={styles.bgElement} style={{ left: left+'vw', top: top+'vw', width: width+'px'  }}>
+                   <Element key={n} symbol={randomSymbol()} />
+                 </div>
+               )
              })}
           </section>
           <section className={styles.header}>

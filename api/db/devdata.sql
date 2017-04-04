@@ -44,3 +44,6 @@ Vivamus a sapien neque');
 
 INSERT INTO post_tags (tag, post_id) VALUES ('Lorem Ipsum', 1);
 INSERT INTO post_tags (tag, post_id) VALUES ('test', 1);
+
+
+INSERT INTO users (username, token) VALUES ('Sequoia Snow', 'gurpgork')
