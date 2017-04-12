@@ -16,6 +16,7 @@ import SiteContainer from './SiteContainer'
 import Post from './Post'
 import TagPage from './TagPage'
 import ElementPage from './ElementPage'
+import ExampleButton from './Components/Atoms/Button/example'
 import './app.scss'
 
 /* Create the browser history. */
@@ -37,6 +38,7 @@ const App = () => {
           <Route path="/" component={SiteContainer}>
             <IndexRoute component={Home} onEnter={() => store.dispatch(refreshAllExcerpts())}/>
             <Route path="elements" component={ElementPage} />
+            <Route path="/styleguide/button" component={ExampleButton} />
             <Route path="/:name" component={Post} onEnter={onBlogEnter} />
             <Route path="/tags/:tag" component={TagPage} onEnter={onTagEnter} />
             <Route path="/notfound" component={NotFound} />

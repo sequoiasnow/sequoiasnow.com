@@ -7,10 +7,12 @@ const SyntaxHighlight = ({ code, language }) => {
   var html = Prism.highlight(code, PrismLanguages[language] || Prism.languages.javascript)
     
   return (
-    <pre className={`language-${language} ` + styles.syntaxHighlight}>
-      <code className={`language-${language}`} dangerouslySetInnerHTML={{ __html: html }}> 
-      </code>
-    </pre>
+    <div className={styles.syntaxHighlight}>
+      <pre className={`language-${language}`}>
+        <code className={`language-${language}`} dangerouslySetInnerHTML={{ __html: html }}> 
+        </code>
+      </pre>
+    </div>
   )
 }
 

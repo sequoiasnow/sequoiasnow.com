@@ -19,6 +19,11 @@ module.exports = [
     loader: "url?prefix=font/&limit=5000"
   },
   {
+    test: /\.(txt|md)$/,
+    exclude: /(node_modules|bower_components)/,
+    loader: "raw-loader"
+  },
+  {
     test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
     exclude: /(node_modules|bower_components)/,
     loader: "url?limit=10000&mimetype=application/octet-stream"

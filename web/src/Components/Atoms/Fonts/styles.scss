@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond|Eagle+Lake|Source+Code+Pro');
+
+/**
+ * The heading font for all titles and section headers.
+ *
+ * @font
+ */
+$font--heading: ('Eagle Lake', 'Source Code Pro', 'Menlo', 'sans-serif');
+
+/**
+ * The standard font used for general text.
+ *
+ * @font
+ */
+$font--regular: ('Cormorant Garamond', 'serif');
+
+/**
+ * The font used for source code previews.
+ *
+ * @font
+ */
+$font--code: ('Source Code Pro', 'monospace');

@@ -1,0 +1,43 @@
+/**
+ * Tries to indicate where a color has not been chosen and is not appropriate. 
+ *
+ * @color Default 
+ */
+$color--default: tomato;
+
+/** @color Red */
+$color--red: rgb(232, 37, 73);
+
+/** @color Blackish Gray */
+$color--blackish: rgb(51, 51, 51);
+
+/** @color Dark Gray */
+$color--dark-gray: rgb(74, 74, 74);
+
+/** @color Gray */
+$color--gray: rgb(155, 155, 155);
+
+/** @color Light Gray */
+$color--light-gray: rgb(216, 216, 216);
+
+/** @color Whiteish */
+$color--whiteish: rgb(235, 235, 235);
+
+/** @color White */
+$color--white: rgb(255, 255, 255);
+
+
+
+/**
+ * A list of all colors
+ *
+ * @color 
+ */
+$colors--all: (
+  'red': $color--red,
+  'blackish': $color--blackish,
+  'dark-gray': $color--dark-gray, 
+  'gray': $color--gray,
+  'light-gray': $color--light-gray,
+  'whiteish': $color--whiteish,
+  'white': $color--white );
