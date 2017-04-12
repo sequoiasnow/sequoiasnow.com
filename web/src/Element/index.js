@@ -79,7 +79,7 @@ const symbolsArr = Object.keys(PeriodicTable.symbols)
 
 /* Convert the string into a series of elements... pretty cool, huh? */
 export const stringToSymbols = (str) => {
-  const chars = str.replace(/[^a-zA-Z \?]/i,'').toUpperCase().split('')
+  const chars = str.replace(/[^a-zA-Z \?0-9]/i,'').toUpperCase().split('')
   let elements = []
 
   for ( let i = 0; i < chars.length; i++ ) {
@@ -109,11 +109,14 @@ export const randomSymbol = () => {
 }
 
 /* Convert the sequence of element's into groups of words */
-export const groupSymbolsByWord = (symbols) => {
+export const groupSymbolsByWord = (symbols, includeSpace = false) => {
   let groups = []
   let subgroup = []
   symbols.forEach((symbol) => {
     if ( symbol == ' ' ) {
+      if ( includeSpace ) {
+        subgroup.push(' ')
+      }
       groups.push(subgroup)
       subgroup = []
     } else {

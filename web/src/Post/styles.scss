@@ -1,47 +1,17 @@
-.content {
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  line-height: 1.8;
-  border: 1px solid rgba(200, 200, 200, 0.3);
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  box-sizing: border-box;
-}
+@import '../variables';
 
-.content :global pre {
-  background-color: #212026;
-  padding: 10px;
+
+.tags-container {
   width: 100%;
-  overflow-y: scroll;
-  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
 
-  .token {
-    &.constant { 
-      color: #fdd095;
-    }
-    
-    &.hvariable {
-      color: #c5c8c6;
-    }
-
-    &.operator,
-    &.punctuation {
-      color: #8abeb7;
-    }
-
-    &.builtin {
-      color: #eeeeec;
-    }
-
-    &.property {
-      color: #efc57a;
-    }
-
-    &.string {
-      color: #b5bd68;
-    }
+  svg {
+    $multiplier : 1.5;
+    width: 400px * $multiplier;
+    height: 175px * $multiplier;
   }
 }
+

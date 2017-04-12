@@ -7,12 +7,14 @@ import { Route
        , browserHistory } from 'react-router'
 import { syncHistoryWithStore  } from 'react-router-redux'
 import { getPostInfo
-       , refreshAllExcerpts } from './actions'
+       , refreshAllExcerpts
+       , getPostsWithTag } from './actions'
 import store from './configureStore'
 import NotFound from './NotFound'
 import Home from './Home'
 import SiteContainer from './SiteContainer'
-import Post from './Post' 
+import Post from './Post'
+import TagPage from './TagPage'
 import ElementPage from './ElementPage'
 import './app.scss'
 
@@ -21,6 +23,10 @@ const history = syncHistoryWithStore(browserHistory, store)
 
 const onBlogEnter = ({ params }) => {
   store.dispatch(getPostInfo(params.name))
+}
+
+const onTagEnter = ({ params }) => {
+  store.dispatch(getPostsWithTag(params.tag))
 }
 
 const App = () => {
@@ -32,6 +38,7 @@ const App = () => {
             <IndexRoute component={Home} onEnter={() => store.dispatch(refreshAllExcerpts())}/>
             <Route path="elements" component={ElementPage} />
             <Route path="/:name" component={Post} onEnter={onBlogEnter} />
+            <Route path="/tags/:tag" component={TagPage} onEnter={onTagEnter} />
             <Route path="/notfound" component={NotFound} />
           </Route> 
         </Router>

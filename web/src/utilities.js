@@ -63,3 +63,22 @@ export function hexToRgba(hex, opacity = 1) {
   }
   return hex; // could not parse.
 }
+
+
+/*******************************************************************************
+ * renderMarkdown
+   - Convert the given text value into markdown
+ *******************************************************************************/
+import MarkdownIt from 'markdown-it'
+import MarkdownMathJax from 'markdown-it-mathjax'
+import MarkdownPrism from 'markdown-it-prism'
+
+/* The markdown renderer. */
+export const md = MarkdownIt().use(MarkdownMathJax())
+                              .use(MarkdownPrism)
+
+/* If the previewed text contains math you may wish to run
+   MathJax.Hub.Que(["Typeset", MathJax.Hub]) afterwards. */
+export function renderMarkdown(raw) {
+  return md.render(raw)
+}

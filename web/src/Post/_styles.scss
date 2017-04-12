@@ -1,0 +1,44 @@
+/* Styles the tag element, only realitve to itself. No document positioning
+   in this file. */
+
+svg.tags-container {
+  overflow: visible;
+}
+
+.pyramid .triangle {
+  transform: translateX(0);
+  transition: all 1s ease;
+}
+
+.tag-group .tag {
+  transform: scale(1) translate(0,0);
+  transition: all 1s ease;
+  cursor: pointer;
+  
+  &:hover {
+    transform: scale(1.05) translate(-10px, -10px);
+
+    polygon {
+      fill-opacity: 1;
+    }
+  }
+}
+
+.tags-container:hover .pyramid {
+  @for $i from 1 through 5 {
+    .triangle-#{$i} {
+      transform: translateX(30px * ($i - 1));
+    }
+  }
+}
+
+/* For mobile view's and the like... */
+.miminal-tag {
+  border-radius: 4px;
+  color: white;
+  margin: 5px;
+
+  &::before {
+    content: '#'
+  }
+}

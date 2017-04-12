@@ -1,0 +1,61 @@
+@import '../variables';
+
+
+svg .pyramidContainer {
+  cursor: pointer; 
+  
+  .triangle {
+    transition: transform 1s ease;
+
+    &-1 { transform: translate(200px, 0px); }
+    &-2 { transform: translate(150px, 0px); }
+    &-3 { transform: translate(100px, 0px); }
+    &-4 { transform: translate(50px, 0px); }
+    &-5 { transform: translate(0px, 0px); }
+  }
+
+  &:hover .triangle {
+    &-1 { transform: translate(200px, 0); }
+    &-2 { transform: translate(150px, 10px); }
+    &-3 { transform: translate(100px, 20px); }
+    &-4 { transform: translate(50px, 30px); }
+    &-5 { transform: translate(0px, 40px); }
+  }
+}
+
+.expance {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  /* The svg viewbox is 800x300 */
+  height: calc(100vh - #{3 / 8 * $navigation-size});
+  background-color: rgb(34, 49, 63);
+  
+  .svg-container { 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  svg {
+    /* The svg viewbox is now 500x300 instead of 800x300 */
+    width: $navigation-size * 5 / 8; 
+    height: $navigation-size * 3 / 8;
+
+    @media (max-width: $navigation-size * 5 / 8) {
+      margin-left: calc(50vw - #{$navigation-size * 5 / 16});
+      margin-right: calc(50vw - #{$navigation-size * 5 / 16});
+    }
+  }
+
+  @media (max-width: $breakpoint-medium) {
+    .svg-container { display: none };
+    height: 5 / 8 * 100vw; 
+  }
+}

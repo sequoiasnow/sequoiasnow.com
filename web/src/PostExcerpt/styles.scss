@@ -1,0 +1,10 @@
+.container {
+  max-width: 600px; 
+}
+
+.container footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 2px;
+}

@@ -1,0 +1,36 @@
+@import '../variables';
+
+.title-container {
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media (max-width: $breakpoint-small) {
+    justify-content: flex-start; 
+  }
+  
+}
+
+.title-word {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start; 
+}
+
+.title-word svg {
+  $width: 60px;
+  width: $width;
+  height: $width * 67 / 59;
+  margin: 2px;
+  
+  @media (max-width: $breakpoint-small) {
+    :global &.atomic-element-space {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+  }
+}

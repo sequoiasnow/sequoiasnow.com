@@ -15,7 +15,10 @@ import { POST_BEGIN_FETCH_EXCERPTS
        , POST_DONE_FETCH_EXCERPTS
        , POST_BEGIN_FETCH_SINGLE
        , POST_FAIL_FETCH_SINGLE
-       , POST_DONE_FETCH_SINGLE } from './actions'
+       , POST_DONE_FETCH_SINGLE
+       , POST_BEGIN_FETCH_TAGS
+       , POST_FAIL_FETCH_TAGS
+       , POST_DONE_FETCH_TAGS }  from './actions'
 const initialPostState = {
   excerpts: [],
   all: {},
@@ -26,6 +29,25 @@ const initialPostState = {
 
 export const posts = (state = initialPostState, action) => {
   switch (action.type) {
+    case POST_DONE_FETCH_TAGS:
+      let excerpts = state.excerpts
+      let data = action.data
+      /* Update excerpts */
+      data.forEach((post) => {
+        const index = excerpts.find((e) => e.id == post.id)
+        if ( index ) {
+          excerpts[index] = post
+        } else {
+          excerpts.push(post)
+        }
+      })
+      return {
+        ...state,
+        excerpts: excerpts,
+        _fetching: false,
+        _error: null,
+        _lastFetch: new Date()
+      }
     case POST_DONE_FETCH_EXCERPTS: 
       let allPosts = state.all
       action.data.forEach((post) => {
@@ -53,12 +75,14 @@ export const posts = (state = initialPostState, action) => {
         _error: null,
         _lastFetch: new Date()
       }
+    case POST_BEGIN_FETCH_TAGS:
     case POST_BEGIN_FETCH_EXCERPTS:
     case POST_BEGIN_FETCH_SINGLE:
       return {
         ...state,
         _fetching: true
-      } 
+      }
+    case POST_FAIL_FETCH_TAGS:
     case POST_FAIL_FETCH_EXCERPTS:
     case POST_FAIL_FETCH_SINGLE:
       return {

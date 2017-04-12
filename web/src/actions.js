@@ -82,3 +82,20 @@ export const getPostInfo = postActionGenerator({
     return Api(`/posts/${id}`)
   }
 })
+
+export const POST_BEGIN_FETCH_TAGS = '[s]POST_BEGIN_FETCH_TAGS'
+export const POST_DONE_FETCH_TAGS  = '[f]POST_DONE_FETCH_TAGS'
+export const POST_FAIL_FETCH_TAGS  = '[f]POST_FAIL_FETCH_TAGS'
+
+export const getPostsWithTag = postActionGenerator({
+  constants: {
+    begin: POST_BEGIN_FETCH_TAGS,
+    fail: POST_FAIL_FETCH_TAGS,
+    done: POST_DONE_FETCH_TAGS
+  },
+  proceed: () => true,
+  api: (posts, dispatch, tag) => {
+    const encodedTag = encodeURIComponent(tag)
+    return Api(`/posts?tag=${encodedTag}`)
+  }
+})

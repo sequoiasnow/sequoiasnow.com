@@ -1,8 +1,5 @@
 @import '../variables';
 
-
-$navigation-size: 900px;
-
 .page {
   background-color: rgb(247, 248, 249);
 
@@ -58,35 +55,9 @@ $navigation-size: 900px;
   }
 }
 
-.expance {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  /* The svg viewbox is 800x300 */
-  height: calc(100vh - #{3 / 8 * $navigation-size});
-  background-color: rgb(34, 49, 63); 
-
-  .svgContainer { 
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-
-  svg {
-    /* The svg viewbox is now 500x300 instead of 800x300 */
-    width: $navigation-size * 5 / 8; 
-    height: $navigation-size * 3 / 8; 
-  }
-}
-
 .header {
   width: 100vw;
+  height: $navigation-size * 3 / 8;
   margin-left: auto;
   margin-top: 0;
   margin-bottom: 0;
@@ -103,6 +74,14 @@ $navigation-size: 900px;
   height: $navigation-size * 3 / 8;
   margin: 0;
   overflow: visible;
+
+  @media (max-width: $navigation-size) {
+    // We're going to make only the middle 500px visible.
+    width: $navigation-size;
+    height: $navigation-size * 3 / 8; 
+    margin-left: calc(50vw - #{$navigation-size / 2});
+    margin-right: calc(50vw - #{$navigation-size / 2});
+  }
 }
 
 .header svg .about-bg,
@@ -110,7 +89,7 @@ $navigation-size: 900px;
   cursor: pointer;
 }
 
-svg .pyramidContainer {
+svg .pyramid-container {
   cursor: pointer; 
   
   .triangle {
@@ -132,9 +111,13 @@ svg .pyramidContainer {
   }
 }
 
-svg .about,
-svg .home {
+.page svg {
   cursor: pointer;
 }
 
 
+@media (max-width: $breakpoint-medium) {
+  .background svg {
+    display: none;
+  }
+}

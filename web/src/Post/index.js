@@ -2,24 +2,21 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Page from '../Page'
 import styles from './styles.scss'
-import MarkdownIt from 'markdown-it'
-import MarkdownMathJax from 'markdown-it-mathjax'
-import MarkdownPrism from 'markdown-it-prism'
-
-const md = MarkdownIt().use(MarkdownMathJax())
-                       .use(MarkdownPrism)
+import Tags from '../Tags'
+import Title from '../Title'
+import Content from '../Content'
 
 const Post = ({ title = '', body = '', tags = [] }) => {
-  const content = md.render(body)
-  /* Update mathjax on the page. */
-  MathJax.Hub.Queue(["Typeset",MathJax.Hub])
   return (
-    <Page title={title}>
+    <Page title={title}> 
       <article> 
         <header>
-          {tags.map((tag) => <span key={tag}>{tag}</span>)}
+          <div className={styles.tagsContainer}>
+            <Tags tags={tags} />
+          </div>
+          <Title title={title} /> 
         </header>
-        <section className={styles.content} dangerouslySetInnerHTML={{__html: content}} /> 
+        <Content markdown={body} /> 
       </article> 
     </Page>
   )

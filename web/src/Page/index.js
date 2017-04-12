@@ -7,7 +7,7 @@ import { times
        , hexToRgba } from '../utilities' 
 import styles from './styles.scss'
 import NavSVG from './NavSVG'
-import ExpanseSVG from './ExpanseSVG'
+import Expanse from '../Expanse'
 
 const mapStateToProps = () => { return {} };
 const mapDispatchToProps = (dispatch) => {
@@ -23,28 +23,22 @@ export default class Page extends React.Component {
   
   render() {
     const bgColor = hexToRgba(randomColor(), 0.1)
-    const { navigateTo
-          , title = 'Title Not Found Or something longer'
-          , children } = this.props
+    const { navigateTo , children } = this.props
     
     const onHomeClick = () => navigateTo('/')
     const onResumeClick = () => navigateTo('/resume')
     const onPyramidClick = () => { this.setState({ expanded: true }) } 
     return (
-      <section className={styles.page +  (this.state.expanded ? ' ' + styles.isExpanded : '')}> 
-        <section className={styles.expance}>
-          <div className={styles.svgContainer}>
-            <ExpanseSVG onPyramidClick={() => this.setState({ expanded: false })} />
-          </div>
-        </section>
+      <section className={styles.page +  (this.state.expanded ? ' ' + styles.isExpanded : '')}>
+        <Expanse onPyramidClick={() => this.setState({ expanded: false })} /> 
         <section className={styles.wrapper}>
           <section className={styles.background} style={{backgroundColor: bgColor}}>
-            {times(40)((n) => {
+            {times(60)((n) => {
                const left = Math.random() * 100
                const top = Math.random() * 30 + n * 30
                const width = Math.random() * 300 + 100
                return (
-                 <div className={styles.bgElement} style={{ left: left+'vw', top: top+'vw', width: width+'px'  }}>
+                 <div className={styles.bgElement} style={{ left: left+'vw', top: top+'vw', width: width+'px'  }} key={n}>
                    <Element key={n} symbol={randomSymbol()} />
                  </div>
                )
@@ -52,9 +46,6 @@ export default class Page extends React.Component {
           </section>
           <section className={styles.header}>
             <NavSVG onHomeClick={onHomeClick} onResumeClick={onResumeClick} onPyramidClick={onPyramidClick} />
-          </section>
-          <section className={styles.titleContainer}>
-            
           </section>
           <section className={styles.content}>
             {children}

@@ -87,7 +87,14 @@ export const RawElement = (data) => {
 export const SpaceElement = ({animate, animatonDuration, animationDelay, ...data}) => {
   return (
     <g className="atomic-element" {...data}>
-      <rect className="background" stroke="white" fill="#f8f5f0" x="0" y="2" width="59" height="65"></rect>
+      <rect className="background"
+            stroke="white"
+            strokeOpacity="0"
+            fill="#f8f5f0"
+            x="0" y="2"
+            width="59"
+            height="65"
+            fillOpacity="0"></rect>
     </g>
   )
 }
