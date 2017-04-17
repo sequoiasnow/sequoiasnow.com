@@ -1,0 +1,36 @@
+/**
+ * @molecule
+ * @description
+ *   The molecule provides the simple specification for an element of a 
+ *   grid behaves. The above grid component uses flexbox. There are 8
+ *   possible column widths that are acceptable.
+ * @modifiers
+ *  .col--1 ... .col--8
+ *  .col--gutter1 ... .col--gutter6
+ *  .col--top
+ *  .col--center
+ *  .col--bottom
+ */
+.col {
+  flex: 1;
+  
+  /* Apply to nested elements */
+  > * { box-sizing: border-box }
+
+  /* Columns from one to 8 */
+  @for $i from 1 through 8 {
+    &--#{$i} { flex: 0 0 #{$i / 8 * 100%} }
+  }
+
+  /* Changes for gutter width */ 
+  @for $i from 1 through 6 {
+    &--gutter#{$i} {
+      padding: 1px * $i;
+    }
+  }
+
+  /* Changes for alignment */
+  &--top    { align-self: flex-start; }
+  &--bottom { align-self: flex-end; }
+  &--center { align-self: center; }
+}

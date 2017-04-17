@@ -1,0 +1,15 @@
+@import '../../Atoms/Colors/styles';
+
+/**
+ * Override some body defaults for this page.
+ */
+:global body {
+  padding: 0;
+  margin: 0;
+  background-color: $color--bg;
+} 
+
+.main-container {
+  margin: 20px auto;
+  max-width: 1000px; 
+}

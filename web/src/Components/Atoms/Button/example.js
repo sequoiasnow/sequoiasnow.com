@@ -1,30 +1,23 @@
 import React from 'react'
 import Button from './index'
-import allColors from '../Colors'
-import allSizes from '../Sizes'
-import Container from '../../../StyleGuide/Container'
-import Section from '../../../StyleGuide/Section'
 import readme from './README.md'
 
+/* --- Atoms --- */
+import Card from '../Card'
+
+/* --- Molecules --- */
+import Markdown from '../../Molecules/Markdown'
+import { colorPickerBound } from '../../Molecules/ColorPicker/example'
+
+export const title = 'Button'
+
+
 const Example = () => {
-  const differentColors = allColors.map((c) => {
-    return {
-      label: 'Hello World',
-      color: c
-    }
-  })
-  const differntSizes = allSizes.map((size) => {
-    return {
-      label: 'Hello World', 
-      size
-    }
-  }) 
-  
   return (
-    <Container preamble={readme}>
-      <Section title="Example Colors" props={differentColors} component={Button} />
-      <Section title="Example Sizes" props={differntSizes} component={Button} />
-    </Container>
+    <div>
+      <Markdown content={readme} /> 
+      <Button color="red" label="Hello World" />
+    </div>
   ) 
 }
 

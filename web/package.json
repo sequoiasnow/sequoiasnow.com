@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
     "start": "webpack-dev-server --progress --profile --colors",
+    "doc": "webpack-dev-server --config webpack.doc.config.js --progress --profile --colors",
     "lint": "eslint --ext js --ext jsx src || exit 0"
   },
   "author": "Sequoai Snow",
@@ -16,6 +17,7 @@
     "es6-promise": "^4.0.5",
     "history": "^4.6.1",
     "kute.js": "^1.6.2",
+    "lorem-ipsum": "^1.0.3",
     "markdown-it": "^8.3.1",
     "markdown-it-mathjax": "^2.0.0",
     "markdown-it-prism": "^1.0.1",

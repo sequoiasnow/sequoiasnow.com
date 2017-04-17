@@ -1,0 +1,21 @@
+@import '../../Atoms/Colors/styles';
+@import '../../Atoms/Card/styles';
+
+/**
+ * @molecule ColorPicker
+ * @modifiers
+ *   .color-picker--fullw   A full width color picker.
+ * @markup
+ *   <ColorPicker onClick={updateSomething} />
+ */
+.color-picker {
+  @include card;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px; 
+
+  &--fullw {
+    width: 100%;
+  }
+}

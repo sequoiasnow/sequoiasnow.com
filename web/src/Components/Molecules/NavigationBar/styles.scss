@@ -1,0 +1,18 @@
+@import '../../Atoms/Colors/styles';
+
+/**
+ * @molecule
+ * @description
+ *  The navgiation bar is nothing more than a simple container for its children. 
+ *  it could easily be replicated by a simple flexbox aligned component.
+ */
+.nav-bar {
+  width: 100%;
+  padding-top: 20px;
+  border-bottom: 1px solid $color--light-gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: $color--content;
+}

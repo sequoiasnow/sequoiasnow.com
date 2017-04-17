@@ -1,0 +1,28 @@
+/**
+ * @organism
+ * @description
+ *   Using a simple flexbox technique, the grid module provides a declartivie
+ *   using grid's.
+ * @modifiers
+ *  .grid--gutter1 ... .grid--gutter6
+ *  .grid--align-top
+ .  .grid--align-bottom
+ *  .grid--align-center
+ *  .grid--horizontal
+ */
+.grid {
+  display: flex; 
+
+  /*  Display the gutters by using negative margins. */
+  @for $i from 1 through 6 {
+    $m: $i * -1px;
+    &--gutter#{$i} { 
+      margin: $m 0 0 $m;
+    }
+  }
+
+  /* Display the grid's different items */
+  &--align-top    { align-items: flex-start; }
+  &--align-bottom { align-items: flex-end; }
+  &--align-center { align-items: center; }
+}

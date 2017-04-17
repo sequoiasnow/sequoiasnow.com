@@ -1,0 +1,24 @@
+@import '../../Atoms/Colors/styles';
+@import '../../Atoms/Card/styles';
+
+/** 
+ * @molecule Sidebar
+ * @description
+ *   A simple vertical list flexbox.
+ */
+.sidebar {
+  @include card;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  @media ( max-width: 700px ) {
+    width: 90%;
+    text-align: center;
+    align-items: center;
+    margin: 20px auto; 
+  }
+}

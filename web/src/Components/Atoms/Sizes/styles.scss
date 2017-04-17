@@ -1,0 +1,29 @@
+/**
+ * The smallests size multiplier.
+ *
+ * @size
+ */
+$size--small: 0.75;
+
+/**
+ * The standard size multiplier, 1.
+ *
+ * @size
+ */
+$size--medium: 1;
+
+/**
+ * The large size multiplier, 1.5
+ *
+ * @size
+ */
+$size--large: 1.5;
+
+/**
+ * A collection of all the sizes corressponding name to variable.
+ */
+$sizes--all: (
+  'small': $size--small,
+  'medium': $size--medium,
+  'large': $size--large
+);

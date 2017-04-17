@@ -5,6 +5,21 @@
  */
 $color--default: tomato;
 
+/** @color Green */
+$color--green: rgb(39, 174, 96);
+
+/** @color Blue */
+$color--blue: rgb(52, 152, 219);
+
+/** @color Purple */
+$color--purple: rgb(155, 89, 182);
+
+/** @color Yellow */
+$color--yellow: rgb(241, 196, 15);
+
+/** @color Orange */
+$color--orange: rgb(243, 156, 18);
+
 /** @color Red */
 $color--red: rgb(232, 37, 73);
 
@@ -21,12 +36,32 @@ $color--gray: rgb(155, 155, 155);
 $color--light-gray: rgb(216, 216, 216);
 
 /** @color Whiteish */
-$color--whiteish: rgb(235, 235, 235);
+$color--whiteish: rgb(245, 245, 245);
 
 /** @color White */
 $color--white: rgb(255, 255, 255);
 
+/**
+ * The color for all selected navigation element's this will not override elements
+ * with specified selected attributes, but remains a usefull tool.
+ *
+ * @color
+ */
+$color--nav-selected: $color--purple;
 
+/**
+ * The background color for the entire site.
+ *
+ * @color
+ */
+$color--bg: $color--whiteish;
+
+/**
+ * The color for the site content
+ *
+ * @color
+ */
+$color--content: $color--white;
 
 /**
  * A list of all colors
@@ -35,9 +70,16 @@ $color--white: rgb(255, 255, 255);
  */
 $colors--all: (
   'red': $color--red,
+  'green': $color--green,
+  'blue': $color--blue,
+  'purple': $color--purple,
+  'yellow': $color--yellow,
+  'orange': $color--orange, 
+  'default': $color--default,
   'blackish': $color--blackish,
   'dark-gray': $color--dark-gray, 
   'gray': $color--gray,
   'light-gray': $color--light-gray,
   'whiteish': $color--whiteish,
-  'white': $color--white );
+  'white': $color--white
+);

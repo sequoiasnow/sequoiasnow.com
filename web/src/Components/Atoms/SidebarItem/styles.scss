@@ -1,0 +1,26 @@
+@import '../Colors/styles';
+@import '../Fonts/styles';
+
+/**
+ * @atom
+ * @description
+ *   Usually in a vertical list the SidebarItem appears as simple centered text
+ *   with an outlined border when selected. It is displayed in a flexbox and uses
+ *   a margin to give itself definition in place of overzealous padding.
+ * @modifiers
+ *   .sidebar-item--selected
+ */
+.sidebar-item {
+  padding: 7px;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: all 0.6s ease;
+  text-align: left;
+  margin: 3px;
+  font-family: $font--nav;
+  cursor: pointer;
+
+  &--selected {
+    background-color: rgba($color--nav-selected, 0.3); 
+  }
+}

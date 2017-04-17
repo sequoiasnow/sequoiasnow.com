@@ -1,0 +1,11 @@
+@import '../../Atoms/Fonts/styles';
+
+/**
+ * @molecule
+ * @description 
+ *  Render's the contained markdown in spectacular fashion. 
+ *  In part by using the styles from other files for inspiration
+ */
+.markdown {
+  font-family: $font--regular;
+}

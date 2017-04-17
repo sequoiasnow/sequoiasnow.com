@@ -1,0 +1,29 @@
+@import '../Colors/styles';
+/**
+ * @mixin
+ * @description
+ *  A simple wrapper for content to give a background, and maybe some
+ *  minor shadow effects.
+ */
+@mixin card () {
+  background-color: $color--content;
+  padding: 10px;
+}
+
+/**
+ * @atom
+ * @modifiers
+ *  .card--margin1 ... .card--margin6
+ */
+.card {
+  padding: 10px 0;
+
+  &:first-of-type {
+    padding: 0;
+    padding-bottom: 10px;
+  }
+
+  .card-container {
+    @include card;
+  }
+}
