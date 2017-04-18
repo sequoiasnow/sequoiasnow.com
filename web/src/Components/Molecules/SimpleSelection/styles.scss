@@ -1,0 +1,9 @@
+/**
+ * @molecule SimpleSelection
+ * @description
+ *  A simple flexbox container, aligned to the left.
+ */
+.simple-selection {
+  display: flex;
+  flex-wrap: wrap;
+}

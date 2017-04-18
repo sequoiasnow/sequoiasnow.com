@@ -4,17 +4,25 @@ import readme from './README.md'
 
 /* --- Atoms --- */
 import Card from '../Card'
+import { allSizes } from '../Sizes'
 import Heading from '../Heading'
+import SidebarItem from '../SidebarItem'
 
 /* --- Molecules --- */
 import Markdown from '../../Molecules/Markdown'
 import { ColorPickerBound } from '../../Molecules/ColorPicker/example'
 import Code from '../../Molecules/Code'
+import { SimpleSelectionSizes } from '../../Molecules/SimpleSelection'
+import Col from '../../Molecules/Col'
+
+/* --- Grids --- */
+import Grid from '../../Organisms/Grid'
 
 export const title = 'Button'
 
 
 const Example = () => {
+  
   return (
     <div>
       <Markdown content={readme} />
@@ -24,15 +32,37 @@ const Example = () => {
       </Card>
       <ColorPickerBound component={(color) => {
           return (
-              <div> 
+            <div> 
+              <Card>
+                <Grid>
+                  <Col width="4">
+                    <Card><Button color={color}>Hello World</Button></Card>
+                  </Col>
+                  <Col width="4">
+                    <Card dark><Button color={color}>Hello Dark!</Button></Card>
+                  </Col>
+                </Grid>
+                <Code language="jsx">{`<Button color="${color}">Hello world</Button>`}</Code>
+              </Card> 
+            </div>
+          )
+        }} />
+      <Card>
+        <Heading>Button Sizes</Heading>
+        <p>The button corresponds to the typical size constraints, as shown below.
+          By default the size is medium</p>
+      </Card>
+      <SimpleSelectionSizes
+          renderFunc={(size) => {
+              return (
                 <Card>
-                  <Button color={color}>Hello World</Button> 
-                  <Code language="jsx">{`<Button color="${color}">Hello world</Button>`}</Code>
+                  <Button size={size}>Hello Sizes!</Button> 
+                  <Code language="jsx">
+                                  {`<Button size="${size}">Hello world</Button>`}
+                  </Code>
                 </Card>
-                <Card dark><Button color={color}>Hello Dark!</Button></Card>
-              </div>
-            )
-          }} />
+              )
+            }} />
     </div>
   ) 
 }

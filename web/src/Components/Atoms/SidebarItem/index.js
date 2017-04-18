@@ -18,7 +18,7 @@ const SidebarItem = ({ children, selected = false, onClick = () => {} }) => {
   })
   
   return (
-    <div className={className}>
+    <div className={className} onClick={onClick}>
       {children}
     </div>
   )
