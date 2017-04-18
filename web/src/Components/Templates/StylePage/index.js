@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-import styles from './styles.scss'
+import './styles.scss'
 import '../../Atoms/Normalize/styles.scss'
 
 /* ----- Organisms ----- */
@@ -28,8 +28,8 @@ const StylePage = (props) => {
         , children } = props 
   
   return (
-    <div className={styles.stylePage}> 
-      <section className={styles.navContainer}>
+    <div className="style-page"> 
+      <section className="style-page__nav">
         <NavigationBar>
           {navLinks.map(({ href, label, selected = false }, index) => {
              return (
@@ -40,7 +40,7 @@ const StylePage = (props) => {
            })}
         </NavigationBar>
       </section> 
-      <section className={styles.mainContainer}> 
+      <section className="style-page__content"> 
         <Grid gutter="5"> 
           <Col width="2">
             <Sidebar>

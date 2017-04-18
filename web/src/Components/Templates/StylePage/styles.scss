@@ -3,13 +3,13 @@
 /**
  * Override some body defaults for this page.
  */
-:global body {
+body {
   padding: 0;
   margin: 0;
   background-color: $color--bg;
 } 
 
-.main-container {
+.style-page__content {
   margin: 20px auto;
   max-width: 1000px; 
-}
+} 

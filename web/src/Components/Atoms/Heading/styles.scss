@@ -1,0 +1,66 @@
+@import '../Colors/styles';
+@import '../Fonts/styles';
+
+/** 
+ * An array of all standard html headings.
+ *
+ * @var
+ */
+$headings: ('h1', 'h2', 'h3', 'h4', 'h5', 'h6');
+
+/**
+ * @atom Heading
+ * @description
+ *  The heading element has three sizes large, medium and small. They
+ *  correspond to a span element modified in the same way. This file 
+ *  also exports css for traditional heading element's rendered in markdown.
+ * @modifiers
+ *  .heading--large
+ *  .heading--medium
+ *  .heading--small
+ *  .heading--center
+ *  .heading--left
+ *  .heading--right
+ .  .heading--${color}
+*/
+#{$headings}, .heading, {
+  font-family: $font--heading; 
+}
+
+@each $name, $color in $colors--all {
+  .heading--#{$name} {
+    color: $color;
+  }
+}
+
+h1, .heading--large {
+  font-size: 3em;
+  text-align: center;
+  margin: 1em auto;
+}
+
+h2, .heading--medium {
+  font-size: 2.5em;
+  text-decoration: underline;
+  margin: 0.5em 0;
+}
+
+h3, .heading--small {
+  font-size: 1.5em;
+  margin: 0.2em 0;
+}
+
+.heading--left {
+  text-align: left;
+  float: left;
+} 
+
+.heading--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.heading--right {
+  float: right;
+}

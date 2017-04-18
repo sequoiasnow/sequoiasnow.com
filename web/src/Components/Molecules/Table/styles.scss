@@ -1,0 +1,35 @@
+@import '../../Atoms/Colors/styles';
+@import '../../Atoms/Fonts/styles';
+
+/**
+ * @molecule Table
+ * @description
+ *  A simple wrapper for the table element, the styling helps make
+ *  the tables more readable. Usually they are also full width after
+ *  this effect.
+ * @modifiers
+ *  .table--font-regular   Table with non-data font.
+ */
+table {
+  width: 100%;
+  font-family: $font--data;
+  
+}
+
+th, td {
+  padding: 0.75em; 
+}
+
+tr:nth-child(2n) td {
+  background-color: rgba($color--gray, 0.15);
+}
+
+tr:nth-child(2n+1) td {
+  background-color: rgba($color--light-gray, 0.1);
+}
+
+th {
+  background-color: rgba($color--primary, 0.5);
+  color: $color--white;
+  font-weight: 200;
+}

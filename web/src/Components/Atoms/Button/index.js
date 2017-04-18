@@ -1,12 +1,17 @@
 import React from 'react'
-import classNames from 'classnames/bind'
-import styles from './styles.scss'
+import cn from 'classnames'
+import './styles.scss'
 
-/* Used for conveniant classNames */
-const cn = classNames.bind(styles)
-
-const Button = ({ label, onClick, inactive = false, color = false, size = false }) => {
-  console.log(styles)
+/**
+ * @atom Button
+ * @description
+ *  A simpel button that can change color and handle click events.
+ * @modifer
+ *  inactive   An inactive button.
+ *  color      The button's color
+ *  size       The size of the button
+ */
+const Button = ({ children, onClick, inactive = false, color = false, size = false }) => {
   const className = cn('btn', {
     'btn--inactive': inactive,
     [`btn--${color}`]: color,
@@ -14,7 +19,7 @@ const Button = ({ label, onClick, inactive = false, color = false, size = false 
   })
   
   return (
-    <button className={className} onClick={(e) => ! inactive && onClick(e)}>{label}</button>
+    <button className={className} onClick={(e) => ! inactive && onClick(e)}>{children}</button>
   )
 }
 

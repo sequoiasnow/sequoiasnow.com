@@ -41,13 +41,21 @@ $color--whiteish: rgb(245, 245, 245);
 /** @color White */
 $color--white: rgb(255, 255, 255);
 
+/** 
+ * The primary color for the site, this is not universal, but show's up
+ * in things like tables and headings.
+ * 
+ * @color
+ */
+$color--primary: $color--orange;
+
 /**
  * The color for all selected navigation element's this will not override elements
  * with specified selected attributes, but remains a usefull tool.
  *
  * @color
  */
-$color--nav-selected: $color--purple;
+$color--nav-selected: $color--primary;
 
 /**
  * The background color for the entire site.

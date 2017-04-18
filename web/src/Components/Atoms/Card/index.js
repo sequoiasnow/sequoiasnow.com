@@ -1,14 +1,19 @@
 import React from 'react'
-import styles from './styles.scss'
+import cn from 'classNames'
+import './styles.scss'
 
 /** 
  * @atom
- * A simple presentational component to give a background to contenent.
+ * @description
+ *   A simple presentational component to give a background to contenent.
+ * @modifiers
+ *   dark   A darker color card.
  */
-const Card = ({ children }) => {
+const Card = ({ children, dark = false }) => {
+  const c = cn('card', { 'card--dark': dark })
   return (
-    <div className={styles.card}>
-      <div className={styles.cardContainer}>{children}</div>
+    <div className={c}>
+      <div className="card-container">{children}</div>
     </div>
   )
 }

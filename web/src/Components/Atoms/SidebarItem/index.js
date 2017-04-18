@@ -1,8 +1,6 @@
 import React from 'react'
-import classNames from 'classnames/bind'
+import cn from 'classnames'
 import styles from './styles.scss'
-
-const cn = classNames.bind(styles)
 
 /**
  * @atom

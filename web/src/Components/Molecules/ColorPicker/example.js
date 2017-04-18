@@ -8,6 +8,7 @@ import ColorPicker from './index'
  */
 export const title = 'Color Picker'
 
+import Card from '../../Atoms/Card'
 
 /**
  * Bind's a color picker to a component, usefull in constructing examples 
@@ -20,9 +21,13 @@ export class ColorPickerBound extends React.Component {
   }
 
   render() {
+    const { component } = this.props;
+    
     return (
-      <div> 
-        <ColorPicker onClick={(color) => this.setState({ color })} selectedColor={this.state.color} />
+      <div>
+        <Card>
+          <ColorPicker onClick={(color) => this.setState({ color })} />
+        </Card>
         {component(this.state.color)}
       </div>
     )

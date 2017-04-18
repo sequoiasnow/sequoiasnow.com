@@ -1,11 +1,32 @@
 @import '../../Atoms/Fonts/styles';
+@import '../../Atoms/Card/styles';
+
+/* Styles related to html components rendered within. */
+@import '../../Atoms/Heading/styles';
+@import '../Table/styles';
+@import '../Code/styles';
 
 /**
  * @molecule
  * @description 
  *  Render's the contained markdown in spectacular fashion. 
  *  In part by using the styles from other files for inspiration
+ * @modifier
+ *   .markdown--seperate
  */
 .markdown {
   font-family: $font--regular;
+  line-height: 1.5;
+
+  &:not(&--seperate) {
+    @include card;
+  }
+
+  &--seperate > * {
+    @include card; 
+    margin: 0; 
+  }
+
+  &--seperate > h2 { margin-top: $card--margin; }
+  &--seperate > *:last-child { margin-bottom: $card--margin; }
 }

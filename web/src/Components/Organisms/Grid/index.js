@@ -1,8 +1,6 @@
 import React from 'react'
-import classNames from 'classNames/bind'
-import styles from './styles.scss'
-
-const cn = classNames.bind(styles)
+import cn from 'classNames'
+import './styles.scss'
 
 /* --- Molecules --- */
 import Col from '../../Molecules/Col'

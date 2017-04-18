@@ -1,6 +1,6 @@
 import React from 'react'
 import SidebarItem from '../../Atoms/SidebarItem'
-import styles from './styles.scss'
+import './styles.scss'
 
 /**
  * @molecule Sidebar
@@ -10,7 +10,7 @@ import styles from './styles.scss'
  */
 const Sidebar = ({ children }) => {
   return (
-    <section className={styles.sidebar}>
+    <section className="sidebar">
       {children}
     </section>
   )

@@ -1,8 +1,6 @@
 import React from 'react'
-import classNames from 'classnames/bind'
-import styles from './styles.scss'
-
-const cn = classNames.bind(styles)
+import cn from 'classnames'
+import './styles.scss'
 
 /**
  * A small component that contains a clickable well of color. It is clickable

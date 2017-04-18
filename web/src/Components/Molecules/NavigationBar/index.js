@@ -1,7 +1,7 @@
 import React from 'react'
 import NavigationItem from '../../Atoms/NavigationItem'
 
-import styles from './styles.scss'
+import './styles.scss'
 
 /**
  * @molecule
@@ -11,7 +11,7 @@ import styles from './styles.scss'
  */
 const NavigationBar = ({ children }) => {
   return (
-    <div className={styles.navBar}>
+    <div className="nav-bar">
       {children}
     </div> 
   ) 
