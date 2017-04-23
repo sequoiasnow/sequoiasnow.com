@@ -77,17 +77,17 @@ $color--content: $color--white;
  * @color 
  */
 $colors--all: (
-  'red': $color--red,
-  'green': $color--green,
-  'blue': $color--blue,
-  'purple': $color--purple,
-  'yellow': $color--yellow,
-  'orange': $color--orange, 
-  'default': $color--default,
-  'blackish': $color--blackish,
-  'dark-gray': $color--dark-gray, 
-  'gray': $color--gray,
+  'red':        $color--red,
+  'green':      $color--green,
+  'blue':       $color--blue,
+  'purple':     $color--purple,
+  'yellow':     $color--yellow,
+  'orange':     $color--orange, 
+  'default':    $color--default,
+  'blackish':   $color--blackish,
+  'dark-gray':  $color--dark-gray, 
+  'gray':       $color--gray,
   'light-gray': $color--light-gray,
-  'whiteish': $color--whiteish,
-  'white': $color--white
+  'whiteish':   $color--whiteish,
+  'white':      $color--white
 );

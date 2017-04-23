@@ -1,7 +1,11 @@
 import React from 'react'
 import cn from 'classNames'
-import ColorWell from '../../Atoms/ColorWell'
+
+/* --- Atoms --- */
+import ColorWell     from '../../Atoms/ColorWell'
+import Card          from '../../Atoms/Card'
 import { allColors } from '../../Atoms/Colors'
+
 import styles from './styles.scss'
 
 
@@ -38,6 +42,28 @@ export default class ColorPicker extends React.Component {
                              onClick={() => clickFunc(color, index)}
                              selected={selected} />
          })}
+      </div>
+    )
+  }
+}
+
+
+export class StatefullColorPicker extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = { color: allColors[0] }
+  }
+
+  render() {
+    const { renderComponent } = this.props
+
+    return (
+      <div>
+        <Card>
+          <ColorPicker onClick={(color) => this.setState({ color })} />
+        </Card>
+        {renderComponent(this.state.color)}
       </div>
     )
   }

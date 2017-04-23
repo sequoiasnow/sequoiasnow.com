@@ -1,5 +1,6 @@
 import React from 'react'
 import Prism from 'prismjs'
+import cn from 'classNames'
 import PrismLanguages from 'prism-languages'
 import './styles.scss'
 
@@ -12,24 +13,20 @@ import './styles.scss'
  * @modifiers
  *   language   The prism langauge highlighter to use.
  */
-const Code = ({ children, language = false }) => {
+const Code = ({ children, language = false, flush = false }) => {
   // If there is language, use prism syntax highlighting
   if ( language ) {
     const html = Prism.highlight(children, PrismLanguages[language])
     return (
-      <pre>
-        <code className={`language--${language}`}
+      <pre className={cn(`language-${language}`, { 'code--flush': flush })}> 
+        <code className={`language-${language}`}
               dangerouslySetInnerHTML={{ __html: html }} />
-      </pre>
+        </pre>
     )
   }
 
   return (
-    <pre>
-      <code>
-        {children}
-      </code>
-    </pre>
+    <code>{children}</code>
   )
 }
 export default Code

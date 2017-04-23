@@ -22,11 +22,11 @@ loaders.push({
   exclude: /[\/\\](node_modules|bower_components|public)[\/\\]/,
   loaders: [
     'style?sourceMap',
-    'css',
+    'css', 
     'postcss',
-    'sass'
+    'sass?includePaths[]=./src/Components'
   ]
-});
+});  
 
 // local css modules
 loaders.push({
@@ -78,6 +78,6 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: './src/template.html'
-    }),
+    })
   ]
 };

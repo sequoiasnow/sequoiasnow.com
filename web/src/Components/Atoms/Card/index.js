@@ -13,7 +13,7 @@ const Card = ({ children, dark = false }) => {
   const c = cn('card', { 'card--dark': dark })
   return (
     <div className={c}>
-      <div className="card-container">{children}</div>
+      <div className="card__container">{children}</div>
     </div>
   )
 }

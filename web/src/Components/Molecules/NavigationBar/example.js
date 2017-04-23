@@ -11,12 +11,12 @@ import rawFile from '!raw-loader!./index.js'
 /**
  * The title of the current note
  */
-export const title = 'ColorPicker'
+export const title = 'NavigationBar'
 
 /**
  * The example to be shown.
  */
 const Example = () => {
-    return <Documentation name="ColorPicker" raw={rawFile} />
+    return <Documentation name="NavigationBar" raw={rawFile} />
 }
 export default Example

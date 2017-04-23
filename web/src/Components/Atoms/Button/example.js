@@ -10,7 +10,7 @@ import SidebarItem from '../SidebarItem'
 
 /* --- Molecules --- */
 import Markdown from '../../Molecules/Markdown'
-import { ColorPickerBound } from '../../Molecules/ColorPicker/example'
+import { StatefullColorPicker } from '../../Molecules/ColorPicker'
 import Code from '../../Molecules/Code'
 import { SimpleSelectionSizes } from '../../Molecules/SimpleSelection'
 import Col from '../../Molecules/Col'
@@ -30,7 +30,7 @@ const Example = () => {
         <Heading>Button Colors</Heading>
         <p>The button can come in a variety of colors as follows</p>
       </Card>
-      <ColorPickerBound component={(color) => {
+      <StatefullColorPicker renderComponent={(color) => {
           return (
             <div> 
               <Card>
@@ -58,7 +58,7 @@ const Example = () => {
                 <Card>
                   <Button size={size}>Hello Sizes!</Button> 
                   <Code language="jsx">
-                                  {`<Button size="${size}">Hello world</Button>`}
+                    {`<Button size="${size}">Hello world</Button>`}
                   </Code>
                 </Card>
               )

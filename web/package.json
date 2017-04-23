@@ -7,6 +7,8 @@
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
     "start": "webpack-dev-server --progress --profile --colors",
     "doc": "webpack-dev-server --config webpack.doc.config.js --progress --profile --colors",
+    "doc:refresh": "node scripts/gendoc.js",
+    "doc:build": "webpack --config webpack.doc.production.js --progress --profile --colors",
     "lint": "eslint --ext js --ext jsx src || exit 0"
   },
   "author": "Sequoai Snow",
@@ -30,6 +32,7 @@
     "prism-languages": "^0.3.3",
     "prismjs": "^1.6.0",
     "react": "^15.4.1",
+    "react-docgen": "^2.14.1",
     "react-dom": "15.4.1",
     "react-element-to-jsx-string": "^6.3.0",
     "react-redux": "^5.0.3",

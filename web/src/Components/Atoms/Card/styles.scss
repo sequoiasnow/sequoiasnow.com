@@ -1,4 +1,12 @@
 @import '../Colors/styles';
+
+/**
+ * The padding given to a card.
+ * 
+ * @var
+ */
+$card--padding: 20px;
+
 /**
  * @mixin
  * @description
@@ -7,7 +15,7 @@
  */
 @mixin card() {
   background-color: $color--content;
-  padding: 20px;
+  padding: $card--padding;
 }
 
 /**
@@ -17,7 +25,8 @@
  */
 @mixin card-dark() {
   background-color: $color--blackish;
-  padding: 20px;
+  padding: $card--padding;
+  color: $color--white;
 }
 
 /**
@@ -35,6 +44,6 @@ $card--margin: 10px;
 .card {
   padding: #{$card--margin / 2} 0;
 
-  .card-container { @include card; }
-  &--dark .card-container { @include card-dark; }
+  .card__container { @include card; }
+  &--dark .card__container { @include card-dark; }
 }

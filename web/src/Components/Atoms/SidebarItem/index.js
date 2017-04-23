@@ -23,4 +23,17 @@ const SidebarItem = ({ children, selected = false, onClick = () => {} }) => {
     </div>
   )
 }
+
+SidebarItem.propTypes = {
+  /**
+   *  If this is the currently selected SidebarItem.
+   */
+  selected: React.PropTypes.bool,
+
+  /**
+   * An action to perform when the SidebarItem is clicked.
+   */
+  onClick: React.PropTypes.func
+}
+
 export default SidebarItem

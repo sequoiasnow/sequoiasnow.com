@@ -4,42 +4,49 @@ import { Router
        , browserHistory } from 'react-router'
 import loremIpsum from 'lorem-ipsum'
 
+/* ----- README ----- */
+import AtomsReadme     from '../../Atoms/README.md'
+import MoleculesReadme from '../../Molecules/README.md'
+import OrganismsReadme from '../../Organisms/README.md'
+import TemplatesReadme from '../../Templates/README.md'
+import PagesReadme     from '../README.md'
+
+/* --- Molecules -- */
+import Markdown      from '../../Molecules/Markdown'
+import Documentation from '../../Molecules/Documentation'
+
 /* --- Templates --- */
 import StylePage from '../../Templates/StylePage'
-
-/** 
- * Convert's a title to a url friendly name.
- */
-const makeUrlFriendly = (name) => name.toLowerCase().replace(' ', '-')
 
 /**
  * Function to find component based on type and name, modifyinf the navgiation
  * and page links appropriatly.
  */
-const createStylePage = (elements, index) => ({ params }) => {
-  const navLinks = Object.keys(elements).map((type) =>  {
+const createStylePage = (elements, readme = false) => ({ params }) => {
+  const navLinks = [
+    { href: '/atoms', label: 'Atoms', selected: params.type == 'atoms' },
+    { href: '/molecules', label: 'Molecules', selected: params.type == 'molecules' },
+    { href: '/organisms', label: 'Organisms', selected: params.type == 'organisms' }, 
+  ]
+
+  const pageLinks = elements[params.type].map(({ name }) =>  {
     return {
-      label: type.charAt(0).toUpperCase() + type.slice(1),
-      href: '/' + type,
-      selected: type == params.type
+      label: name,
+      href: `/${params.type}/${name}`, 
+      selected: name == params.name
     }
   })
-  const pageLinks = elements[params.type].map(({ title }) =>  {
-    const url = makeUrlFriendly(title)
-    return {
-      label: title,
-      href: `/${params.type}/${url}`, 
-      selected: url == params.name
-    }
-  })
-  const child = elements[params.type].find(({ title }) => {
-    return makeUrlFriendly(title) == params.name
-  })
-  const ChildComponent = child ? child.component : () => {}
-                         
+  
+ 
+  const relevant = elements[params.type].find(({ name }) => name == params.name) 
+  console.log(relevant)
   return (
     <StylePage pageLinks={pageLinks} navLinks={navLinks}>
-      {child && <ChildComponent />}
+      <div>
+        {relevant.readme && <Markdown content={relevant.readme} />}
+        <Documentation raw={relevant.module} name={relevant.name} file={relevant.file} />
+        {relevant.example && React.createElement(relevant.example, {}, null) }
+      </div>
     </StylePage>
   )
 }

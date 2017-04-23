@@ -1,12 +1,14 @@
 @import '../../Atoms/Colors/styles';
 @import '../../Atoms/Fonts/styles';
+@import '../../Atoms/Card/styles';
 
 /**
  * @molecule Code
  * @description
  *   Render's nicely formatted code using prismjs
  * @modifiers
- *   language--$language
+ *   language-$language
+ *   code--flush      Remove padding
  */
 code {
   font-family: $font--code;
@@ -16,7 +18,7 @@ code {
   :not(pre) > & {
     border-radius: 3px;
     background-color: rgba(27, 31, 35, 0.05);
-    white-space: normal;
+    white-space: nowrap;
     padding: .3em;
   }
 } 
@@ -32,6 +34,12 @@ pre {
   padding: 1em;
   border-radius: 3px;
   overflow-x: scroll;
+
+  &.code--flush {
+    margin-left: -$card--padding;
+    margin-right: -$card--padding;
+    margin-bottom: -$card--padding;
+  }
 }
 
 /**
