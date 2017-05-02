@@ -1,0 +1,39 @@
+@import 'Atoms/Colors/styles';
+
+/**
+ * @atom IconClose
+ * @description
+ *  Uses before and after along with transformations to show or hide
+ *  an icon.
+ * @modifiers
+ *  .icon-close--expanded
+ */
+.icon-close {
+  position: relative;
+  width: 30px;
+  height: 30px;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    transform-origin: (50%, 50%);
+    transition: 0.3s ease;
+    background-color: $color--dark-gray; 
+  }
+
+  &::before { top: 1 / 3 * 100%; }
+  &::after  { top: 2 / 3 * 100%; }
+
+  &--expanded::before,
+  &--expanded::after {
+    top: 50%; 
+  }
+
+  &--expanded::before { transform: rotate(45deg); }
+  &--expanded::after  { transform: rotate(-45deg); }
+}

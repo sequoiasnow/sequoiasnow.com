@@ -14,23 +14,29 @@ table {
   width: 100%;
   font-family: $font--data;
   font-size: 0.9em;
-  
+  margin: 10px auto;
+  border-collapse: collapse;
 }
 
-th, td {
-  padding: 0.75em; 
+td, th {
+  padding: 8px 10px;
+  border: 1px solid #dfe2e5;
 }
 
-tr:nth-child(2n) td {
-  background-color: rgba($color--gray, 0.15);
+tr {
+  border-top: 1px solid #dfe2e5;
 }
 
-tr:nth-child(2n+1) td {
-  background-color: rgba($color--light-gray, 0.1);
+tr:nth-child(2n+1) {
+  background-color: white;
+}
+
+tr:nth-child(2n) {
+  background-color: #f6f8fa;
 }
 
 th {
-  background-color: rgba($color--primary, 0.5);
-  color: $color--white;
-  font-weight: 200;
+  background-color: white; 
+  font-weight: bold;
+  text-align: center;
 }

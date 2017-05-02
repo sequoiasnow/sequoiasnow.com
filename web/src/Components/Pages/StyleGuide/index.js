@@ -18,6 +18,11 @@ import Documentation from '../../Molecules/Documentation'
 /* --- Templates --- */
 import StylePage from '../../Templates/StylePage'
 
+/** 
+ * Simple navigation temp
+ */
+const NotFoundPage = () => ( <h1>Page not found</h1> )
+
 /**
  * Function to find component based on type and name, modifyinf the navgiation
  * and page links appropriatly.
@@ -26,26 +31,46 @@ const createStylePage = (elements, readme = false) => ({ params }) => {
   const navLinks = [
     { href: '/atoms', label: 'Atoms', selected: params.type == 'atoms' },
     { href: '/molecules', label: 'Molecules', selected: params.type == 'molecules' },
-    { href: '/organisms', label: 'Organisms', selected: params.type == 'organisms' }, 
+    { href: '/organisms', label: 'Organisms', selected: params.type == 'organisms' },
+    { href: '/templates', label: 'Templates', selected: params.type == 'templates' }
   ]
 
   const pageLinks = elements[params.type].map(({ name }) =>  {
     return {
       label: name,
       href: `/${params.type}/${name}`, 
-      selected: name == params.name
+      selected: name.toLowerCase() == (params.name || '').toLowerCase()
     }
   })
   
- 
-  const relevant = elements[params.type].find(({ name }) => name == params.name) 
-  console.log(relevant)
+  const relevant = elements[params.type].find(({ name }) =>
+    name.toLowerCase() == (params.name || '').toLowerCase()
+  ) 
+
+  if ( ! relevant ) {
+    if ( readme ) {
+      const rm = ({ atoms: AtomsReadme
+                  , molecules: MoleculesReadme
+                  , organisms: OrganismsReadme
+                  , templates: TemplatesReadme })[params.type]
+      return (
+        <StylePage pageLinks={pageLinks} navLinks={navLinks}>
+          <Markdown content={rm} />
+        </StylePage>
+      )
+    } 
+    return <NotFoundPage />
+  }
+
+  /* Eventually we could just use the component as a defualt instance. */
+  const Example = relevant.example || relevant.instance || (() => null)
+  
   return (
     <StylePage pageLinks={pageLinks} navLinks={navLinks}>
       <div>
-        {relevant.readme && <Markdown content={relevant.readme} />}
         <Documentation raw={relevant.module} name={relevant.name} file={relevant.file} />
-        {relevant.example && React.createElement(relevant.example, {}, null) }
+        {relevant.readme && <Markdown content={relevant.readme} />}
+        <Example />
       </div>
     </StylePage>
   )

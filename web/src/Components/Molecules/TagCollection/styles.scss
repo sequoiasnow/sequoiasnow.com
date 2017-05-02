@@ -1,0 +1,58 @@
+@import 'Atoms/Colors/styles';
+@import 'Atoms/Tag/styles';
+
+/**
+ * The width/height of the TagCollection
+ */
+$tag-collection--size: 300px;
+
+/**
+ * @molecule TagCollection
+ * @description
+ *   A collection of tags displayed in a circle when inactive, and a line when 
+ *   hovered over.
+ */
+.hashtag-collection {
+  position: relative;
+  width: $tag-collection--size;
+  height: $tag-collection--size;
+}
+
+.hashtag-collection__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 1s ease;
+  transform-origin: 50% 50%;
+  height: 100%;
+}
+
+.hashtag-collection__container > .hashtag {
+  position: absolute;
+  left: 146px + 60px;
+  top: 133px;
+  transform-origin: -60px 50%;
+
+  @for $i from 1 through 30 {
+    &:nth-child(#{$i}) {
+      transform: rotate(($i - 1) * -35deg);
+    }
+  }
+}
+
+.hashtag-collection__circle {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  left: $tag-collection--size / 2 - 55px;
+  top: $tag-collection--size  / 2 - 55px;
+  border-radius: 50%;
+  background-color: $color--tags; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+  color: $color--white;
+}

@@ -6,7 +6,8 @@ import Card    from '../../Atoms/Card'
 import Heading from '../../Atoms/Heading'
 
 /* --- Molecules --- */
-import Code    from '../Code'
+import Code     from '../Code'
+import Markdown from '../Markdown'
 
 /**
  * Get the description from the parsed content.
@@ -16,7 +17,7 @@ const getDescription = (docs) => {
   const results = description.match(/@description\n([a-zA-Z\s0-9,\.\n]+)/i)
   if ( results )
     return results[1].replace(/[\s\n]+/i, ' ')
-  return ''
+  return description
 }
 
 /**
@@ -28,16 +29,38 @@ const getMarkup = (docs) => {
 }
 
 /**
+ * Get's the type's name from the type object.
+ */
+const getTypeName = ({ name, value }) => {
+  console.log(`the name is ${name} and the value is`)
+  console.log(value)
+  const options = {
+    'instanceOf': (value) => value,
+    'enum': (value) => value.map((a) => a.value.replace(/'/g, '')).join(' | '), 
+    'arrayOf': (value) => '[' + getTypeName(value) + ']', 
+    'shape': (value) => {
+      let arr =[]
+      for (let key in value) {
+        arr.push(`  ${key}: ${getTypeName(value[key])}`)
+      }
+      return "{ \n" + arr.join(", \n") + "\n}"
+    }
+  }
+  return value ? (options[name] || (() => name))(value) : name
+} 
+
+/**
  * Generate a table from the raw data.
  */
 const propsTable = (docs) => {
   let data = []
-  const { props = [] } = docs;
+  const { props = [] } = docs
   for (let name in props) {
     const { type = { name: 'custom' } 
           , defaultValue = { value: '' }
-          , description = '' } = docs.props[name] 
-    data.push([ name, type.name, defaultValue.value, description ])
+          , description = '' } = docs.props[name]
+    let typeName = getTypeName(type)
+    data.push({ name, type: typeName, defaultValue: defaultValue.value, description })
   }
   
   return (
@@ -46,13 +69,16 @@ const propsTable = (docs) => {
         <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
       </thead>
       <tbody>
-        {data.map(([ name, type, defaultValue, description ], index) => {
+        {data.map(({ name, type, defaultValue, description }, index) => {
            return (
-             <tr key={index}>
+             <tr key={index} >
                <td>{name}</td>
-               <td><Code>{type}</Code></td>
+               <td>
+                 {Array.isArray(type) ?
+                  type.map((a, i) => <Code key={i}>{a}</Code>) : <Code>{type}</Code>}
+               </td>
                <td>{defaultValue && <Code>{defaultValue}</Code>}</td>  
-               <td>{description}</td>
+               <td><Markdown content={description} /></td>
              </tr>
            )
          })}
@@ -68,9 +94,9 @@ const propsTable = (docs) => {
  *  generates an entire host of documentation for it.
  */
 const Documentation = ({ raw, name }) => {
-  const noDoc = ( <Card><Heading>No Documentation</Heading></Card> )
+  const noDoc = null 
   if ( ! raw.includes('react') ) {
-    /* This file doesn't deal with react... */
+    /* This file doesn't deal with react... */ 
     return noDoc
   }
 
@@ -89,10 +115,9 @@ const Documentation = ({ raw, name }) => {
     <div>
       <Card>
         <Heading size='large'>{name}</Heading>
-        <p>{description}</p>
+        <Markdown content={description} />
       </Card>
       <Card>
-        <Heading>{`${name} Properties`}</Heading>
         {props}
       </Card>
     </div>

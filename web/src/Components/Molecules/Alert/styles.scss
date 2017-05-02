@@ -1,0 +1,45 @@
+@import 'Atoms/Colors/styles';
+/**
+ * @atom Alert
+ * @description
+ *  The Alert is centered with a high z index.
+ */
+.alert {
+  overflow: hidden;
+  border-radius: 7px; 
+  background-color: $color--white;
+  min-width: 200px;
+}
+
+.alert__content {
+  padding: 15px;
+}
+
+.alert__footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-top: 1px solid $color--whiteish;
+
+  > span {
+    padding: 10px;
+    color: $color--primary;
+    cursor: pointer;
+    border-left: 1px solid $color--whiteish;
+    transition: all 0.5s ease;
+    background-color: $color--white;
+    flex: 1;
+    text-align: center;
+
+    &:hover {
+      color: $color--white;
+      background-color: $color--primary;
+    }
+  }
+  
+  > span:nth-child(1) { 
+    border-left: none;
+  }
+}
+
+

@@ -23,3 +23,5 @@ function classNames(...args) {
     } 
 
 }
+
+export default classNames

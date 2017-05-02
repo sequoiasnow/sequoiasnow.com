@@ -1,6 +1,5 @@
 import React from 'react'
 import Button from './index'
-import readme from './README.md'
 
 /* --- Atoms --- */
 import Card from '../Card'
@@ -25,7 +24,6 @@ const Example = () => {
   
   return (
     <div>
-      <Markdown content={readme} />
       <Card>
         <Heading>Button Colors</Heading>
         <p>The button can come in a variety of colors as follows</p>

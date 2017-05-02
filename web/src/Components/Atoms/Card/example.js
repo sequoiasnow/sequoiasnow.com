@@ -1,7 +1,6 @@
 import React from 'react'
 
 /* --- Local --- */
-import readme    from './README.md'
 import rawStyles from '!raw-loader!./styles.scss'
 
 /* --- Atoms --- */
@@ -10,7 +9,6 @@ import Heading from '../Heading'
 
 /* --- Molecules --- */
 import Code     from '../../Molecules/Code'
-import Markdown from '../../Molecules/Markdown'
 
 
 /**
@@ -24,7 +22,6 @@ export const title = 'Card'
 const Example = () => {
   return (
     <div>
-      <Markdown content={readme} />
       <Card dark>
         <Heading>Example Dark Card</Heading>
         <p>As you can see the background color changes and the text changes to a

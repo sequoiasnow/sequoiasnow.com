@@ -1,22 +1,26 @@
-
-/******** GENERATED Tue Apr 18 2017 19:03:53 GMT-0700 (PDT) ********/
 import React from 'react'
 
+/* --- Atoms --- */
+import Card from '../../Atoms/Card'
+
 /* --- Molecules --- */
-import Documentation from '../Documentation'
+import Code from './index'
 
-/* --- Local Imports --- */
-import rawFile from '!raw-loader!./index.js'
+const Example = () => (
+  <div>
+    <Card>
+      Example flush card. <Code>This</Code> is what inline code looks
+      like.
+      <Code language="c" flush>
+        {`
+#include <stdio.h>
 
-/**
- * The title of the current note
- */
-export const title = "Code"
-
-/**
- * The example to be shown.
- */
-const Example = () => {
-    return <Documentation name="Code" raw={rawFile} />
+int main() {
+    printf("Hello World");
 }
+        `}
+      </Code>
+    </Card>
+  </div>
+)
 export default Example

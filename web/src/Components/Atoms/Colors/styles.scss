@@ -47,7 +47,7 @@ $color--white: rgb(255, 255, 255);
  * 
  * @color
  */
-$color--primary: $color--orange;
+$color--primary: $color--red;
 
 /**
  * The color for all selected navigation element's this will not override elements
@@ -70,6 +70,13 @@ $color--bg: $color--whiteish;
  * @color
  */
 $color--content: $color--white;
+
+/**
+ * The color for all tags.
+ *
+ * @color
+ */
+$color--tags: $color--blue;
 
 /**
  * A list of all colors

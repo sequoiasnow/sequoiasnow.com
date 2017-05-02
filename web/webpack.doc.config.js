@@ -1,47 +1,15 @@
 "use strict";
-var webpack = require('webpack');
-var path = require('path');
-var loaders = require('./webpack.loaders');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const rules = require('./webpack.rules');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const HOST = process.env.HOST || "127.0.0.1";
 const PORT = process.env.PORT || "3141";
 
-// global css
-loaders.push({
-  test: /\.css$/,
-  exclude: /[\/\\]src[\/\\]/,
-  loaders: [
-    'style?sourceMap',
-    'css'
-  ]
-});
-// local scss modules
-loaders.push({
-  test: /\.scss$/,
-  exclude: /[\/\\](node_modules|bower_components|public)[\/\\]/,
-  loaders: [
-    'style?sourceMap',
-    'css', 
-    'postcss',
-    'sass?includePaths[]=./src/Components'
-  ]
-});  
-
-// local css modules
-loaders.push({
-  test: /\.css$/,
-  exclude: /[\/\\](node_modules|bower_components|public)[\/\\]/,
-  loaders: [
-    'style?sourceMap',
-    'css?modules&camelCase=dashes&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-    'postcss'      
-  ]
-});
 
 module.exports = {
   entry: [
-    'whatwg-fetch',
     'react-hot-loader/patch',
     './src/styleguide.js' // your app's entry point
   ],
@@ -52,15 +20,13 @@ module.exports = {
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   module: {
-    loaders
+    rules
   },
   devServer: {
     contentBase: "./style",
-    // do not print bundle build stats
-    noInfo: true,
     // enable HMR
     hot: true,
     // embed the webpack-dev-server runtime into the bundle
@@ -74,7 +40,8 @@ module.exports = {
     new webpack.NoErrorsPlugin(), 
     new webpack.HotModuleReplacementPlugin(),
     new webpack.ProvidePlugin({
-      'Promise': 'es6-promise'
+      Promise: 'imports-loader?this=>global!exports-loader?global.Promise!es6-promise',
+      fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch'
     }),
     new HtmlWebpackPlugin({
       template: './src/template.html'

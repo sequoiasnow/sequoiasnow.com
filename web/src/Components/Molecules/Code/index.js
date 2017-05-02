@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Prism from 'prismjs'
 import cn from 'classNames'
 import PrismLanguages from 'prism-languages'
@@ -13,15 +14,16 @@ import './styles.scss'
  * @modifiers
  *   language   The prism langauge highlighter to use.
  */
-const Code = ({ children, language = false, flush = false }) => {
+const Code = ({ children, language, flush = false }) => {
   // If there is language, use prism syntax highlighting
-  if ( language ) {
-    const html = Prism.highlight(children, PrismLanguages[language])
+  if ( language || children.length > 40 ) {
+    const lang = language || 'javascript' 
+    const html = Prism.highlight(children, PrismLanguages[lang])
     return (
-      <pre className={cn(`language-${language}`, { 'code--flush': flush })}> 
-        <code className={`language-${language}`}
+      <pre className={cn(`language-${lang}`, { 'code--flush': flush })}> 
+        <code className={`language-${lang}`}
               dangerouslySetInnerHTML={{ __html: html }} />
-        </pre>
+      </pre>
     )
   }
 
@@ -29,4 +31,21 @@ const Code = ({ children, language = false, flush = false }) => {
     <code>{children}</code>
   )
 }
+
+Code.propTypes = {
+  /**
+   * A known prism language for which to highlight the following code.
+   */
+  language: PropTypes.string,
+  /**
+   * Make flush **with a card**, this will only be flush within an instance of 
+   * [Card](/atoms/Card).
+   */
+  flush: PropTypes.bool,
+  /**
+   * The code to be highlighted.
+   */
+  children: PropTypes.string
+}
+
 export default Code

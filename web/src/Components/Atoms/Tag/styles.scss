@@ -1,0 +1,36 @@
+@import 'Atoms/Colors/styles';
+@import 'Atoms/Fonts/styles';
+
+/**
+ * The height of a tag, this variable is used by the tag container
+ *
+ * @var
+ */
+$tag--height: 40px;
+
+/**
+ * @atom Tag
+ * @description
+ *   A simple hashtag proceeding a highlighted tag.
+ */
+.hashtag {
+  font-family: $font--code;
+  word-wrap: nowrap;
+  cursor: pointer;
+  margin: auto 5px;
+  padding: 6px;
+  background-color: rgba($color--tags, 0.2);
+  transition: all 0.3s ease;
+  border: 1px solid rgba($color--tags, 0);
+  border-radius: 7px;
+
+  &:hover {
+    background-color: rgba($color--tags, 0.3); 
+  }
+  
+  &::before {
+    content: '#';
+    padding-right: 2px;
+  }
+}
+

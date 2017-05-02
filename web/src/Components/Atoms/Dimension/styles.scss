@@ -1,0 +1,22 @@
+@import "Atoms/Colors/styles";
+/**
+ * @atom Dimension
+ * @description
+ *  One of the primary advantages of the dimension is its background, 
+ *  this can be done through the color modifier.
+ * @modifiers
+ *   .dimension--$color
+ *   .dimension--padding  Add some nice padding, largely for testing.
+ */
+.dimension {
+  @each $name, $color in $colors--all {
+    &--#{$name} {
+      background-color: $color;
+    }
+  }
+
+  &--padding { 
+    box-sizing: border-box;
+    padding: 30px;
+  }
+}

@@ -16,7 +16,7 @@ import Col from '../../Molecules/Col'
  *   gutter      The space in between column elements.
  *   align       top/bottom/center Alignement of element's columns.
  */
-const Grid = ({ children, horizontal = true, gutter = false, align = "top" }) => {
+const Grid = ({ children, horizontal = true, gutter = 0, align = "top" }) => {
   const c = cn('grid', {
     [`grid--gutter${gutter}`]: gutter,
     [`grid--${align}`]: align,
@@ -29,5 +29,24 @@ const Grid = ({ children, horizontal = true, gutter = false, align = "top" }) =>
        })}
     </div>
   )
+}
+Grid.propTypes = {
+  /**
+   * If the grid is horizontal or vertical. Currently changing this will have 
+   * no effect at all on the grid, it's an experimental feature.
+   */
+  horizontal: React.PropTypes.bool,
+  /**
+   * The size of the gutter of the Grid, 0-6.
+   */
+  gutter: React.PropTypes.oneOfType([
+    React.PropTypes.number,
+    React.PropTypes.string
+  ]),
+  /**
+   * The alignment of the columns, top to bottom, bottom to top. This can also be set
+   * individually by the columns.
+   */
+  align: React.PropTypes.oneOf(['top', 'bottom', 'center']),
 }
 export default Grid

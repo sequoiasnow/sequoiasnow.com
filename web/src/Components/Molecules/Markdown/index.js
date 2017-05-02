@@ -26,7 +26,7 @@ import './styles.scss'
  * @modifiers
  *   seperateContent, splits the content into multiple cards.
  */
-const Markdown = ({ content, seperateContent = true }) => {
+const Markdown = ({ content, seperateContent = false }) => {
   const c = cn('markdown', { 'markdown--seperate': seperateContent })
   
   

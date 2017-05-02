@@ -1,0 +1,38 @@
+/**
+ * @molecule MultiDimensional
+ * @description
+ *   The basic premise for this module is to take a variety of diumension 
+ *   components and make them hidden to the sides and then become 
+ *   visible using simple transformations. 
+ */
+.multidim {
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.multidim__container {
+  flex: 1;
+  width: 100%; 
+  position: relative;
+  transition: transform 1.5s ease;
+}
+
+.multidim__container > .dimension {
+  position: absolute;
+  top: 0;
+
+  &--center {
+    order: 1;
+    position: relative; 
+  }
+  &--left {
+    order: 0;
+    right: 100%;
+  }
+  &--right {
+    left: 100%;
+    order: 2;
+  }
+}
