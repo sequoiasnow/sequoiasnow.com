@@ -36,7 +36,7 @@ $nav-item--spacing: 10px;
     width: 0;
     transform: translateX(50%);
     transition: 0.6s ease;
-    background-color: $color--nav-selected;
+    background-color: color('theme', 'selected');
   }
 
   /* Adjust padding and margin according to size. */
@@ -58,12 +58,12 @@ $nav-item--spacing: 10px;
 
   /* Slightly diminsihed colors. */
   &:hover {
-    color: rgba($color--nav-selected, 0.4);
-    &::after { background-color: rgba($color--nav-selected, 0.4); } 
+    color: rgba(color('theme', 'selected'), 0.4);
+    &::after { background-color: rgba(color('theme', 'selected'), 0.4); } 
   }
 
   /* By default the color ::after is the selected color */
   &--selected {
-    color: $color--nav-selected; 
+    color: color('theme', 'selected'); 
   }
 }

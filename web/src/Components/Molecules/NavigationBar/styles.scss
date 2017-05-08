@@ -9,10 +9,10 @@
 .nav-bar {
   width: 100%;
   padding-top: 20px;
-  border-bottom: 1px solid $color--light-gray;
+  border-bottom: 1px solid color(planet, dark);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
-  background-color: $color--content;
+  background-color: color(theme, content-bg);
 }

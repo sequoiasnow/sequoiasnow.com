@@ -14,7 +14,7 @@ $card--padding: 20px;
  *  minor shadow effects.
  */
 @mixin card() {
-  background-color: $color--content;
+  background-color: color('theme', 'content-bg');
   padding: $card--padding;
 }
 
@@ -24,9 +24,9 @@ $card--padding: 20px;
  *  A dark version of the card mixin.
  */
 @mixin card-dark() {
-  background-color: $color--blackish;
+  background-color: color('planet', 'blackest');
   padding: $card--padding;
-  color: $color--white;
+  color: color('planet', 'lightest');
 }
 
 /**

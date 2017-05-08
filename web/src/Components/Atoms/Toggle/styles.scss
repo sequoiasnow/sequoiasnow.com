@@ -1,0 +1,55 @@
+@import 'Atoms/Colors/styles';
+
+/**
+ * The color of the border of the toggle, for now this will
+ * simply be the primary color, but later it should be made more
+ * dynmaic.
+ */
+$toggle--color: color('theme', 'selected');
+
+/**
+ * @atom
+ * @description
+ *   A simple flexbox, containing multiple toggles,
+ *   using the same effect for a toggled item as the button does for 
+ *   a selected one.
+ * @modifiers 
+ *  .toggle__item--selected
+ */
+.toggle {
+  display: inline-block; // Prevent taking up whole container
+}
+
+.toggle__wrap {
+  display: flex;
+  flex-direction: row;
+  border-radius: 7px;
+  overflow: hidden;
+  border: 1px solid $toggle--color;
+  margin: 10px auto;
+}
+
+
+.toggle__item {
+  padding: 6px 10px;
+  border-right: 1px solid $toggle--color;
+  box-sizing: border-box;
+  text-align: center;
+  color: $toggle--color;
+  background-color: rgba(white, 0);
+  transition: all 0.45s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba($toggle--color, 0.7);
+    color: color(theme, content-bg);
+  }
+  &--selected {
+    background-color: $toggle--color;
+    color: color(theme, content-bg);
+  }
+
+  &:last-child {
+    border-right: none;
+  }
+}

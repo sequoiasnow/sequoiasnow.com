@@ -6,7 +6,7 @@
 body {
   padding: 0;
   margin: 0;
-  background-color: $color--bg;
+  background-color: color(theme, bg);
 } 
 
 .style-page__content {

@@ -1,0 +1,16 @@
+@import '../../Atoms/Colors/styles';
+
+/**
+ * @molecule
+ * @description
+ *   A standard card based design, with hovering image, menat to give a sense
+ *   of individualism to the excerpt.
+ */
+.post-excerpt {
+  background-color: color(theme, content-bg); 
+}
+
+.post-excerpt footer,
+.post-excerpt section {
+  padding: 5px;
+}

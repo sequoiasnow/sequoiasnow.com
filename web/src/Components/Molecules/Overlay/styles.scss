@@ -1,0 +1,69 @@
+@import "Atoms/Colors/styles";
+@import "Atoms/Fonts/styles";
+@import "Atoms/Breakpoints/styles";
+@import "Atoms/Math/styles";
+
+/**
+ * The size of the overlay is typically given for desktop, for mobile
+ * this will always be 100vw.
+ */
+$overlay--width: 20vw;
+
+/**
+ * @molecule
+ * @description
+ *   The overlay is NOT an independent component. It exists outside the realm of 
+ *   pure functional components as it modifies the body as well. This is due to
+ *   the fact that the overlay positions the body absolutly when visible, then shifts
+ *   it to the right. The overlay is fixed in position, and will always appear in the 
+ *   same place on desktops. 
+ *
+ *   On mobile the overlay will attempt to take over the screen, this effect is 
+ *   currently in BETA. A better solution might still be found. 
+ *
+ *   To reveal itself the overlay moves the body to the left, and itself into focus,
+ *   using THE SAME TRANSFORM. This is partially because transformations animate
+ *   better and because they are generally more dynamic.
+ */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 100vw;
+  width: $overlay--width;
+  height: 100vw;
+  background-color: color(planet);
+
+  @include breakpoint-mobile {
+    width: 100vw;
+  }
+}
+
+.body__overlay {
+  transition: transform 1s ease-in;
+  transform: translateX(0);
+
+  &--rotate {
+    transform-origin: 100% 0%;
+  }
+
+  &--visible {
+    transform: translateX(-$overlay--width);
+
+    /**
+     * The equation for this looks something like
+     * @math
+     *  tan(\theta) = \frac{width}{100vh} \\
+     *  \theta = arctan(\frac{width}{100vh}) \\
+     *  arctan(x) = x - \frac{x^3}{3} + ... \\
+     *  \theta \sim \frac{width}{100vh} \\
+     */
+    &.body__overlay--rotate {
+      transform: rotate(20deg);
+    }
+    
+    @include breakpoint-mobile {
+      transform: translateX(-100vw);
+    }
+  }
+}
+

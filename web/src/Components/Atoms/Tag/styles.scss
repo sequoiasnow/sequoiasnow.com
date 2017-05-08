@@ -6,28 +6,38 @@
  *
  * @var
  */
-$tag--height: 40px;
+$tag--height: 30px;
 
 /**
  * @atom Tag
  * @description
  *   A simple hashtag proceeding a highlighted tag.
+ * @modifers
+ *   $tag--$category
  */
 .hashtag {
   font-family: $font--code;
   word-wrap: nowrap;
   cursor: pointer;
   margin: auto 5px;
-  padding: 6px;
-  background-color: rgba($color--tags, 0.2);
+  padding: 3px;
   transition: all 0.3s ease;
-  border: 1px solid rgba($color--tags, 0);
+  border: 1px solid rgba(color(), 0);
   border-radius: 7px;
 
-  &:hover {
-    background-color: rgba($color--tags, 0.3); 
+  @each $name, $cat in map-get($colors, category) {
+    &--#{$name} {
+      color: map-get($cat, 'default');
+      border-color: map-get($cat, 'default'); 
+
+      &:hover {
+        background-color: map-get($cat, 'default');
+        border-color: map-get($cat, 'lightest');
+        color: map-get($cat, 'lightest'); 
+      }
+    }
   }
-  
+
   &::before {
     content: '#';
     padding-right: 2px;

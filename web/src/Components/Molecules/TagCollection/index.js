@@ -51,8 +51,10 @@ export default class TagCollection extends React.Component {
   render() {
     const degree = this.state.selectedIndex * 35;
     const { tags, children } = this.props 
-    const tagComps = ! tags ? children : tags.map((tag, i) => (
-      <Tag key={i} onClick={() => this.setState({ selectedIndex: i })}>{tag}</Tag> 
+    const tagComps = ! tags ? React.Children.map(children, (tag) => React.cloneElement(tag)): tags.map((tag, i) => (
+      <Tag key={i}
+           onClick={() => this.setState({ selectedIndex: i })}
+           selected={this.state.selectedIndex == i}>{tag}</Tag> 
     ))
     return (
       <div className="hashtag-collection">

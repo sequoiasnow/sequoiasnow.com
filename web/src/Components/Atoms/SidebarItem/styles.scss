@@ -21,6 +21,6 @@
   cursor: pointer;
 
   &--selected {
-    background-color: rgba($color--nav-selected, 0.3); 
+    background-color: rgba(color('theme', 'selected'), 0.3); 
   }
 }

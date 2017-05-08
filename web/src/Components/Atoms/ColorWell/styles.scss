@@ -21,7 +21,7 @@ $color-wheel--size: 30px;
   cursor: pointer;
   transition: all 0.6s ease;
   transform: scale(1);
-  border: 1px solid darken($color--content, 30);
+  border: 1px solid color('planet');
   margin: 4px;
 
   /* Perform size modifiers */

@@ -1,0 +1,8 @@
+/**
+ * The main breakpoint for mobile, this allows a uniform mobile experince.
+ */
+@mixin breakpoint-mobile() {
+  @media (max-width: 800px) {
+    @content;
+  }
+}

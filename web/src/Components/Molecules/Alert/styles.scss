@@ -7,9 +7,9 @@
 .alert {
   overflow: hidden;
   border-radius: 7px; 
-  background-color: $color--white;
+  background-color: color(planet, lightest);
   min-width: 200px;
-}
+                         }
 
 .alert__content {
   padding: 15px;
@@ -19,21 +19,21 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  border-top: 1px solid $color--whiteish;
+  border-top: 1px solid color(planet, light);
 
   > span {
     padding: 10px;
-    color: $color--primary;
+    color: color(planet);
     cursor: pointer;
-    border-left: 1px solid $color--whiteish;
+    border-left: 1px solid color(planet, light);
     transition: all 0.5s ease;
-    background-color: $color--white;
+    background-color: color(planet, lightest);
     flex: 1;
     text-align: center;
 
     &:hover {
-      color: $color--white;
-      background-color: $color--primary;
+      color: color(planet, lightest);
+      background-color: color(planet);
     }
   }
   

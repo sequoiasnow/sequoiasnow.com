@@ -1,45 +1,87 @@
 /**
- * Tries to indicate where a color has not been chosen and is not appropriate. 
- *
- * @color Default 
+ * All colors that will be used in the project.
  */
-$color--default: tomato;
+$colors--all: (
+  default: tomato,
+  green: rgb(39, 174, 96),
+  blue: rgb(52, 152, 219),
+  purple: rgb(155, 89, 182),
+  yellow: rgb(241, 196, 15),
+  orange: rgb(243, 156, 18),
+  red: rgb(232, 37, 73),
+  blackish: rgb(51, 51, 51),
+  dark-gray: rgb(74, 74, 74),
+  grey: rgb(155, 155, 155),
+  light-gray: rgb(216, 216, 216),
+  whiteish: rgb(245, 245, 245),
+  white: rgb(255, 255, 255),
+);
 
-/** @color Green */
-$color--green: rgb(39, 174, 96);
+/** PLANETARY COLORS */
+$colors--planets: (
+  mars:
+  (
+    lightest: #f4e9d6,
+    light: #efb63d,
+    default: #e93232,
+    dark: #9a2361, 
+    darkest: #020202,
+    alt: #1b669b,
+  ),
+  ceres: (
+    lightest: #fdfcfa,
+    light: #cbd7e2,
+    default: #456073,
+    dark: #202833, 
+    darkest: #0b0a0f,
+    alt: #202f4c,
+  ),
+  jupiter: (
+    lightest: #cebbd3,
+    light: #f7a4b8,
+    default: #bf332c,
+    dark: #143131, 
+    darkest: #220d14,
+    alt: #42baa5
+  ),
+  enclaudus: (
+    lightest: #e8efe8,
+    light: #c8e6e1,
+    default: #e93232,
+    dark: #9a2361, 
+    darkest: #020202,
+    alt: #1b669b
+  ), 
+);
 
-/** @color Blue */
-$color--blue: rgb(52, 152, 219);
+/** 
+ * There is such thing as a planetary colorsheme, or at least I made somthing along those 
+ * lines up. Thus we get colors for the various planets, the selected planet is given as 
+ * $color--planet.
+ */
+$colors--planet: map-get($colors--planets, mars);
 
-/** @color Purple */
-$color--purple: rgb(155, 89, 182);
+/**
+ * The colors for a variety of regions that can be defined.
+ */
+$colors--theme: (
+  selected: map-get($colors--planet, 'default'),
+  content-bg: map-get($colors--planet, 'lightest'),
+  bg: map-get($colors--planet, 'light'),
+  tags: map-get($colors--planet, 'default'),
+  text: map-get($colors--planet, 'darkest'), 
+);
 
-/** @color Yellow */
-$color--yellow: rgb(241, 196, 15);
-
-/** @color Orange */
-$color--orange: rgb(243, 156, 18);
-
-/** @color Red */
-$color--red: rgb(232, 37, 73);
-
-/** @color Blackish Gray */
-$color--blackish: rgb(51, 51, 51);
-
-/** @color Dark Gray */
-$color--dark-gray: rgb(74, 74, 74);
-
-/** @color Gray */
-$color--gray: rgb(155, 155, 155);
-
-/** @color Light Gray */
-$color--light-gray: rgb(216, 216, 216);
-
-/** @color Whiteish */
-$color--whiteish: rgb(245, 245, 245);
-
-/** @color White */
-$color--white: rgb(255, 255, 255);
+/**
+ * Keeps track of all colors for a category. Usually these correspond to some planets.
+ */
+$colors--category: (
+  physics: map-get($colors--planets, 'ceres'),
+  math: map-get($colors--planets, 'mars'),
+  web: map-get($colors--planets, 'enclaudus'),
+  programing: map-get($colors--planets, 'jupiter'),
+  default: $colors--planet
+);
 
 /** 
  * The primary color for the site, this is not universal, but show's up
@@ -47,54 +89,46 @@ $color--white: rgb(255, 255, 255);
  * 
  * @color
  */
-$color--primary: $color--red;
+$color--primary: map-get($colors--all, orange); 
 
 /**
- * The color for all selected navigation element's this will not override elements
- * with specified selected attributes, but remains a usefull tool.
- *
- * @color
+ * The nested color map used by everything.
  */
-$color--nav-selected: $color--primary;
-
-/**
- * The background color for the entire site.
- *
- * @color
- */
-$color--bg: $color--whiteish;
-
-/**
- * The color for the site content
- *
- * @color
- */
-$color--content: $color--white;
-
-/**
- * The color for all tags.
- *
- * @color
- */
-$color--tags: $color--blue;
-
-/**
- * A list of all colors
- *
- * @color 
- */
-$colors--all: (
-  'red':        $color--red,
-  'green':      $color--green,
-  'blue':       $color--blue,
-  'purple':     $color--purple,
-  'yellow':     $color--yellow,
-  'orange':     $color--orange, 
-  'default':    $color--default,
-  'blackish':   $color--blackish,
-  'dark-gray':  $color--dark-gray, 
-  'gray':       $color--gray,
-  'light-gray': $color--light-gray,
-  'whiteish':   $color--whiteish,
-  'white':      $color--white
+$colors: (
+  theme: $colors--theme,
+  planets: $colors--planets,
+  planet: $colors--planet,
+  category: $colors--category,
+  all: $colors--all,
+  default: $color--primary
 );
+
+/**
+ * @function
+ * @description
+ *   The color funciton provides the accessor method to the entire colorsheme. 
+ *   If no second argument is provided, it will pull colors from the colors-all 
+ *   or colors--planet lists. 
+ * @param $map    region, mars, planet, all
+ * @param $color  The name of the color to be used.
+ */
+@function color($one: false, $two: false, $three: false) {
+  @if ($one and $two and $three) {
+    @warn("Arguments are #{$one} #{$two} #{$three}");
+    @return map-get(map-get(map-get($colors, $one), $two), $three);
+  } @elseif ($one and $two) {
+    $res: map-get(map-get($colors, $one), $two);
+    @if ( type-of($res) == 'map' ) {
+      @return map-get($res, 'default');
+    }
+    @return $res;
+  } @elseif ( $one ) {
+    $res: map-get($colors, $one);
+    @if ( $res and type-of($res) == 'map' ) {
+      @return map-get($res, default);
+    }
+    @return map-get(map-get($colors, all), $one);
+  } @else {
+    @return map-get($colors, 'default');
+  }
+}

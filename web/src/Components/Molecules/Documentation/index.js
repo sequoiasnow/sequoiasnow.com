@@ -32,11 +32,10 @@ const getMarkup = (docs) => {
  * Get's the type's name from the type object.
  */
 const getTypeName = ({ name, value }) => {
-  console.log(`the name is ${name} and the value is`)
-  console.log(value)
   const options = {
     'instanceOf': (value) => value,
-    'enum': (value) => value.map((a) => a.value.replace(/'/g, '')).join(' | '), 
+    'enum': (value = []) =>
+      Array.isArray(value) ? value.map((a) => a.value.replace(/'/g, '')).join(' | ') : 'custom', 
     'arrayOf': (value) => '[' + getTypeName(value) + ']', 
     'shape': (value) => {
       let arr =[]

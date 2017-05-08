@@ -15,6 +15,7 @@
   "license": "MIT",
   "dependencies": {
     "auto-prefixer": "^0.4.2",
+    "classlist-polyfill": "^1.2.0",
     "classnames": "^2.2.5",
     "github-syntax-light": "^0.3.1",
     "history": "^4.6.1",

@@ -1,0 +1,43 @@
+/**
+ * @function
+ * @description
+ *   The value of pi, to use for trigonometric functions.
+ */
+@function pi() {
+  @return 3.14159265359;
+}
+
+
+/**
+ * @function
+ * @description
+ *  The power function takes a number and puts it to the power provided, by default
+ *  two.
+ * @param $n     The number to raise to a power
+ * @param $exp   The exponent to raise the number to.
+ */
+@function pow($n, $exp: 2) {
+  @if ( $n < 0 ) {
+    @return pow(-$n)
+  }
+  $val: 1;
+
+  @for $i from 1 through $exp {
+    $val: $n * $val
+  }
+
+  @return $val;
+}
+
+
+/**
+ * @function
+ * @description
+ *   A simple function with the functionaity of arctan using the 
+ *   taylor series expansion
+ * @param $x
+ */
+@function arctan($x) {
+  $rad: $x - pow($x, 3) / 3;
+  @return $rad * 360deg / ( 2 * pi() );
+}
