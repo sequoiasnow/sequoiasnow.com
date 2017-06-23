@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400|Source+Code+Pro|Roboto:300,300i,400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,300i,400|Source+Code+Pro|Crimson+Text');
 
 /**
  * The heading font for all titles and section headers.
@@ -12,9 +12,8 @@ $font--heading: ('Source Code Pro', 'Roboto', 'monospace');
  *
  * @font
  */
-$font--regular: ('Roboto', 'sans-serif');
-
-body { font-family: $font--regular }
+$font--regular: ('Crimson Text', 'serif');
+$font--content: $font--regular;
 
 /**
  * The font used for source code previews.
@@ -36,3 +35,13 @@ $font--data: $font--code;
  * @font
  */
 $font--nav: $font--heading;
+
+
+/**
+ * Theere are some default elements that require font configuration. 
+ */
+body {
+  font-family: $font--regular;
+  line-height: 1.6;
+}
+

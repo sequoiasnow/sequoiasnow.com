@@ -19,14 +19,13 @@ $colors--all: (
 
 /** PLANETARY COLORS */
 $colors--planets: (
-  mars:
-  (
+  mars: (
     lightest: #f4e9d6,
     light: #efb63d,
-    default: #e93232,
-    dark: #9a2361, 
+    default: #fe845d,
+    dark: #e93232,
     darkest: #020202,
-    alt: #1b669b,
+    alt: #9d2160,
   ),
   ceres: (
     lightest: #fdfcfa,
@@ -39,7 +38,7 @@ $colors--planets: (
   jupiter: (
     lightest: #cebbd3,
     light: #f7a4b8,
-    default: #bf332c,
+    default: #74569f,
     dark: #143131, 
     darkest: #220d14,
     alt: #42baa5
@@ -66,20 +65,22 @@ $colors--planet: map-get($colors--planets, mars);
  */
 $colors--theme: (
   selected: map-get($colors--planet, 'default'),
-  content-bg: map-get($colors--planet, 'lightest'),
-  bg: map-get($colors--planet, 'light'),
+  'content-bg': map-get($colors--all, white),
+  content: map-get($colors--all, 'white'),
+  bg: rgba(map-get($colors--planet, 'lightest'), 0.3),
   tags: map-get($colors--planet, 'default'),
-  text: map-get($colors--planet, 'darkest'), 
+  text: map-get($colors--planet, 'darkest'),
+  primary: map-get($colors--planet, 'default'),
 );
 
 /**
  * Keeps track of all colors for a category. Usually these correspond to some planets.
  */
 $colors--category: (
-  physics: map-get($colors--planets, 'ceres'),
-  math: map-get($colors--planets, 'mars'),
-  web: map-get($colors--planets, 'enclaudus'),
-  programing: map-get($colors--planets, 'jupiter'),
+  physics: map-get($colors--planets, 'mars'),
+  math: map-get($colors--planets, 'enclaudus'),
+  web: map-get($colors--planets, 'ceres'),
+  programming: map-get($colors--planets, 'jupiter'),
   default: $colors--planet
 );
 
@@ -89,7 +90,7 @@ $colors--category: (
  * 
  * @color
  */
-$color--primary: map-get($colors--all, orange); 
+$color--primary: map-get($colors--planet, default); 
 
 /**
  * The nested color map used by everything.

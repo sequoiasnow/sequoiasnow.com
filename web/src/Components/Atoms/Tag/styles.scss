@@ -17,30 +17,37 @@ $tag--height: 30px;
  */
 .hashtag {
   font-family: $font--code;
-  word-wrap: nowrap;
+  font-size: 0.8em;
+  white-space: nowrap;
   cursor: pointer;
-  margin: auto 5px;
-  padding: 3px;
+  margin-right: 4px; 
+  padding: 5px;
   transition: all 0.3s ease;
   border: 1px solid rgba(color(), 0);
-  border-radius: 7px;
+  border-radius: 15px 0px;
 
   @each $name, $cat in map-get($colors, category) {
     &--#{$name} {
       color: map-get($cat, 'default');
       border-color: map-get($cat, 'default'); 
 
-      &:hover {
+      &:hover,
+      &.hashtag--selected {
         background-color: map-get($cat, 'default');
-        border-color: map-get($cat, 'lightest');
-        color: map-get($cat, 'lightest'); 
+        color: map-get($cat, 'lightest');
+        border-radius: 25px; 
       }
     }
   }
-
   &::before {
     content: '#';
     padding-right: 2px;
+  }
+
+  &--simple {
+    border: none;
+    font-size: 0.7em;
+    margin-right: 2px;
   }
 }
 

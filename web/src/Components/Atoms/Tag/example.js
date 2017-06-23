@@ -7,10 +7,10 @@ import Card from '../Card'
 export default function() {
   return (
     <Card>
-      <Tag>Other Things</Tag>
-      <Tag>Web</Tag>
-      <Tag>Haskell</Tag>
-      <Tag>Programming</Tag>
+      <Tag category="physics">Other Things</Tag>
+      <Tag category="math">Web</Tag>
+      <Tag category="programming">Haskell</Tag>
+      <Tag category="web">Programming</Tag>
       <Tag>Style Guide</Tag>
     </Card>
   )

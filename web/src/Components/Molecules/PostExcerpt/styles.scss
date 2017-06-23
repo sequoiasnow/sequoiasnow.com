@@ -1,4 +1,22 @@
-@import '../../Atoms/Colors/styles';
+@import 'Atoms/Colors/styles';
+@import 'Atoms/Fonts/styles';
+
+/**
+ * The size of the post-excerpt card.
+ * 
+ * @var
+ */
+$post-excerpt--size: 350px;
+
+/**
+ * The small size of a post excerpt card, for when collpased is specified.
+ */
+$post-excerpt--size-collapsed: 250px;
+
+/**
+ * The aspect ration width/height of the post image, which is required.
+ */
+$post-excerpt--image-ratio: 1.4;
 
 /**
  * @molecule
@@ -7,10 +25,63 @@
  *   of individualism to the excerpt.
  */
 .post-excerpt {
-  background-color: color(theme, content-bg); 
-}
+  flex-shrink: 0;
+  width: $post-excerpt--size;
+  max-width: 100vw;
+  padding: 20px;
+  margin: 10px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
 
-.post-excerpt footer,
-.post-excerpt section {
-  padding: 5px;
+  &__body {
+    font-family: $font--regular;
+  }
+
+  &__image {
+    width: 100%; 
+    height: $post-excerpt--size / $post-excerpt--image-ratio; 
+    background-repeat: no-repeat;
+    background-position: center center; 
+    background-size: cover;
+    border-radius: 5px;
+    margin-bottom: 4px;
+  }
+
+  &__title {
+    color: color('theme', 'primary');
+    cursor: pointer;
+  }
+
+  &__tags {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  @each $cat, $n in $colors--category {
+    &--#{$cat} {
+      .post-excerpt__category {
+        color: color(category, $cat);
+      }
+    }
+  }
+
+  &--collapsed {
+    width: $post-excerpt--size-collapsed; 
+
+    .post-excerpt__divider {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    
+    .post-excerpt__title * {
+      font-size: 1.2em;
+    }
+    .post-excerpt__image {
+      height: $post-excerpt--size-collapsed / $post-excerpt--image-ratio;
+    }
+  }
 }

@@ -38,7 +38,12 @@ export default class TagCollection extends React.Component {
      * strings or react components.
      */
     tags: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.string),
+      PropTypes.arrayOf(
+        PropTypes.shape({
+          tag: PropTypes.string,
+          category: PropTypes.string
+        })
+      ),
       PropTypes.arrayOf(PropTypes.element) 
     ]) 
   }
@@ -51,11 +56,16 @@ export default class TagCollection extends React.Component {
   render() {
     const degree = this.state.selectedIndex * 35;
     const { tags, children } = this.props 
-    const tagComps = ! tags ? React.Children.map(children, (tag) => React.cloneElement(tag)): tags.map((tag, i) => (
-      <Tag key={i}
-           onClick={() => this.setState({ selectedIndex: i })}
-           selected={this.state.selectedIndex == i}>{tag}</Tag> 
-    ))
+    const tagComps = ! tags ? React.Children.map(children, (tag, i) =>
+      React.cloneElement(tag, {
+        onClick: () => this.setState({selectedIndex: i }),
+        selected: this.state.selectedIndex == i
+      })) : tags.map((tag, i) => (
+        <Tag key={i}
+             category={tag.category}
+             onClick={() => this.setState({ selectedIndex: i })}
+             selected={this.state.selectedIndex == i}>{tag.tag}</Tag> 
+      ))
     return (
       <div className="hashtag-collection">
         <div className="hashtag-collection__circle">

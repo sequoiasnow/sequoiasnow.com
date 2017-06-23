@@ -7,9 +7,9 @@
 .alert {
   overflow: hidden;
   border-radius: 7px; 
-  background-color: color(planet, lightest);
-  min-width: 200px;
-                         }
+  background-color: color(theme, content-bg);
+  min-width: 200px; 
+}
 
 .alert__content {
   padding: 15px;
@@ -27,7 +27,7 @@
     cursor: pointer;
     border-left: 1px solid color(planet, light);
     transition: all 0.5s ease;
-    background-color: color(planet, lightest);
+    background-color: color(theme, content-bg);
     flex: 1;
     text-align: center;
 

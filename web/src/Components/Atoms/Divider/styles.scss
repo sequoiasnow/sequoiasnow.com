@@ -1,0 +1,59 @@
+@import 'Atoms/Colors/styles';
+
+.divider {
+  width: 100%;
+  position: relative;
+  
+  &--has-content {
+    min-height: 100px;
+  }
+}
+
+.divider__left,
+.divider__right {
+  position: absolute;
+  top: 20px; 
+}
+
+.divider__left {
+  left: 0;
+}
+
+.divider__right {
+  right: 0;
+}
+
+.divider__svg {
+  width: 100%;
+
+  .divider--has-content & {
+    cursor: pointer;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.divider__line {
+  stroke: color(planet);
+  stroke-width: 3px;
+}
+
+.divider__line-2 {
+  transition: all 0.5s linear;
+  stroke-width: 3px;
+  stroke: color(planet, dark); 
+}
+
+.divider__content {
+  display: none;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px;
+  padding-top: 30px;
+
+  .divider--expanded & {
+    display: block;
+  } 
+}

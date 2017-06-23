@@ -19,7 +19,10 @@
 
   /* Columns from one to 8 */
   @for $i from 1 through 8 {
-    &--#{$i} { flex: 0 0 #{$i / 8 * 100%} }
+    &--#{$i} {
+      flex: 0 0 #{$i / 8 * 100%};
+      width: $i / 8 * 100%;
+    }
   }
 
   /* Changes for gutter width */ 

@@ -4,7 +4,7 @@
 /**
  * The width/height of the TagCollection
  */
-$tag-collection--size: 300px;
+$tag-collection--size: 400px;
 
 /**
  * @molecule TagCollection
@@ -26,12 +26,13 @@ $tag-collection--size: 300px;
   transition: transform 1s ease;
   transform-origin: 50% 50%;
   height: 100%;
+  background-color: var(--debug-c1);
 }
 
 .hashtag-collection__container > .hashtag {
   position: absolute;
-  left: 146px + 60px;
-  top: 133px;
+  left: $tag-collection--size / 2 + 60px;
+  top: $tag-collection--size / 2 - $tag--height / 2;
   transform-origin: -60px 50%;
 
   @for $i from 1 through 30 {
